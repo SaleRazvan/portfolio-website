@@ -7,20 +7,36 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { AddFunFactDto } from './dtos/add-fun-fact.dto';
 import { FunFact } from './fun-facts.entity';
-import { User } from 'src/users/user.entity';
 
 @Injectable()
 export class FunFactsService {
   constructor(@InjectRepository(FunFact) private repo: Repository<FunFact>) {}
 
   async listCountries() {
-    const countries = await this.repo
+    const rawCountryData: { country: string; fact: string }[] = await this.repo
       .createQueryBuilder()
-      .select('country')
+      .select('country, fact')
       .distinct(true)
       .getRawMany();
 
-    return countries.map((entry) => entry.country);
+    const groupedCountries = rawCountryData.reduce<
+      { country: string; facts: string[] }[]
+    >((acc, countryData) => {
+      const existingCountry = acc.find(
+        (c) => c.country === countryData.country,
+      );
+      if (existingCountry) {
+        existingCountry.facts.push(countryData.fact);
+      } else {
+        acc.push({
+          country: countryData.country,
+          facts: [countryData.fact],
+        });
+      }
+      return acc;
+    }, []);
+
+    return groupedCountries;
   }
 
   async getFunFactForCountry(country: string) {

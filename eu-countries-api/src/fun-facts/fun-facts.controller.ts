@@ -16,7 +16,7 @@ import { AdminGuard } from 'src/guards/admin.guard';
 export class FunFactsController {
   constructor(private funFactsService: FunFactsService) {}
 
-  @Get('/allCountries')
+  @Get('/all')
   listCountries() {
     return this.funFactsService.listCountries();
   }
