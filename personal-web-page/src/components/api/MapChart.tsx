@@ -20,7 +20,7 @@ type MapOptionsType = {
 const mapOptions: MapOptionsType = {
   center: [50, 10],
   zoom: 4,
-  maxZoom: 6,
+  maxZoom: 7,
   minZoom: 4,
   maxBounds: [
     [33, -25],
@@ -33,10 +33,7 @@ export default function MapChart() {
 
   useEffect(() => {
     const fetchCountries = async () => {
-      // const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
       try {
-        // await delay(3000);
-
         const data = await fetch(
           "https://portfolio-website-9jb0.onrender.com/fun-facts/all"
         );

@@ -9,7 +9,7 @@ import {
 import { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AppContext } from "../../AppContext";
-import { CheckCircledIcon } from "@radix-ui/react-icons";
+import { CheckIcon, Cross2Icon } from "@radix-ui/react-icons";
 
 export default function ApiForm() {
   const { t } = useTranslation();
@@ -17,7 +17,9 @@ export default function ApiForm() {
   const [countryInput, setCountryInput] = useState<string>("Albania");
   const [factInput, setFactInput] = useState<string>("");
   const [error, setError] = useState({ country: false, fact: true });
-  const [reqSent, setReqSent] = useState(false);
+  const [responseMessage, setResponseMessage] = useState<string | undefined>(
+    undefined
+  );
 
   const handleCountryInputChange = (value: string) => {
     setCountryInput(value);
@@ -33,13 +35,15 @@ export default function ApiForm() {
   ) => {
     setFactInput(event.target.value);
 
-    if (event.target.value.length === 0 || event.target.value.length > 40)
+    if (event.target.value.length === 0 || event.target.value.length > 100)
       setError((oldError) => ({ ...oldError, fact: true }));
     else if (error.fact) setError((oldError) => ({ ...oldError, fact: false }));
   };
 
   const handleCountryAddition = async () => {
     try {
+      if (error.country || error.fact) return;
+
       const myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
 
@@ -54,8 +58,12 @@ export default function ApiForm() {
 
       const response = await request.json();
 
-      if (request.ok) setReqSent(true);
-      else alert(response.error);
+      if (request.ok) {
+        setResponseMessage(t("api.success"));
+        setFactInput("");
+      } else {
+        setResponseMessage(response.message);
+      }
     } catch (err) {
       console.error(err);
     }
@@ -93,12 +101,16 @@ export default function ApiForm() {
       >
         {t("api.button")}
       </Button>
-      {reqSent && (
+      {responseMessage && (
         <Callout.Root>
           <Callout.Icon>
-            <CheckCircledIcon />
+            {responseMessage === t("api.success") ? (
+              <CheckIcon />
+            ) : (
+              <Cross2Icon />
+            )}
           </Callout.Icon>
-          <Callout.Text weight="medium">{t("api.success")}</Callout.Text>
+          <Callout.Text weight="medium">{responseMessage}</Callout.Text>
         </Callout.Root>
       )}
     </Flex>
