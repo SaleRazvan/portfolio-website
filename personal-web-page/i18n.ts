@@ -103,6 +103,17 @@ i18n
               desc: "Provide technical consulting services to help clients plan, architect, and implement their JavaScript-based solutions",
             },
           },
+          api: {
+            title: "Play with my API",
+            shortDesc:
+              "A Leaflet-powered map with markers revealing fun facts for every country, dynamically fetched from my custom backend",
+            warning:
+              "Notice that, due to provider limitations, it may take up to one minute for the map to load",
+            github: "Explore repository",
+            map: "Leaflet-powered interactive map",
+            warning2:
+              "Feel free to help me populate the DB. Keep in mind though, records need to be validated before showing up",
+          },
           notAvailable: {
             title: "Sorry, this route is not available",
             warning:
@@ -198,6 +209,17 @@ i18n
               title: "Consultare tehnica",
               desc: "Furnizarea de servicii de consultanta tehnica pentru a ajuta clientii sa planifice, sa proiecteze si sa implementeze solutii JS",
             },
+          },
+          api: {
+            title: "Incearca-mi API-ul",
+            shortDesc:
+              "O hartă creată cu Leaflet, cu markere care dezvăluie curiozități despre fiecare țară, preluate din backend-ul personalizat creat de mine",
+            warning:
+              "Din cauza limitarilor furnizorului, incarcarea hartii poate dura pana la un minut",
+            github: "Acceseaza cod sursa",
+            map: "Harta interactiva (Leaflet)",
+            warning2:
+              "Simte-te liber sa ma ajuti sa populez baza de date. Tine cont insa ca inregistrarile trebuie validate înainte de a fi afisate",
           },
           notAvailable: {
             title: "Ruta curenta nu este disponibila",
