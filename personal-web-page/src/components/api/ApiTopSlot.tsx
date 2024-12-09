@@ -4,7 +4,7 @@ import { AppContext } from "../../AppContext";
 import { Button, Callout, Flex, Heading, Text } from "@radix-ui/themes";
 import PersonalCard from "../personal-card/PersonalCard";
 import AlertLinkModal from "../alert-link-modal/AlertLinkModal";
-import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
 
 export default function ApiTopSlot() {
   const { t } = useTranslation();
@@ -20,9 +20,9 @@ export default function ApiTopSlot() {
 
       <Callout.Root>
         <Callout.Icon>
-          <ExclamationTriangleIcon />
+          <InfoCircledIcon />
         </Callout.Icon>
-        <Callout.Text weight="medium">{t("api.warning")}</Callout.Text>
+        <Callout.Text weight="medium">{t("api.warning2")}</Callout.Text>
       </Callout.Root>
 
       <PersonalCard />
@@ -31,7 +31,7 @@ export default function ApiTopSlot() {
         action="dialog.github"
         href="https://github.com/SaleRazvan/portfolio-website"
       >
-        <Button variant="solid" size="3" style={{ maxWidth: "30%" }}>
+        <Button size="3" style={{ maxWidth: "30%" }}>
           {t("api.github")}
         </Button>
       </AlertLinkModal>

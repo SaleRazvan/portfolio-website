@@ -31,7 +31,7 @@ export default function SkillsTopSlot() {
         action="dialog.linkedin"
         href="https://www.linkedin.com/in/razvan-sale-059647216/"
       >
-        <Button variant="solid" size="3" style={{ maxWidth: "30%" }}>
+        <Button size="3" style={{ maxWidth: "30%" }}>
           {t("skills.linkedin")}
         </Button>
       </AlertLinkModal>

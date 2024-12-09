@@ -4,13 +4,23 @@ import { AppContext } from "./AppContext";
 import React, { useState } from "react";
 import { navigationScreens } from "./common/constants";
 import NotAvailable from "./components/not-available/NotAvailable";
+import { EuCountry } from "./common/types";
 
 export default function App() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [euCountriesData, setEuCountriesData] = useState<EuCountry[]>([]);
   const dynamicColor = theme === "dark" ? "amber" : "indigo";
 
   return (
-    <AppContext.Provider value={{ theme, setTheme, dynamicColor }}>
+    <AppContext.Provider
+      value={{
+        theme,
+        setTheme,
+        dynamicColor,
+        euCountriesData,
+        setEuCountriesData,
+      }}
+    >
       <Theme
         appearance={theme}
         accentColor={theme === "dark" ? "amber" : "indigo"}

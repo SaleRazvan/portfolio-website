@@ -20,6 +20,7 @@ import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators/current-user.decorator';
 import { User } from './user.entity';
 import { AuthGuard } from 'src/guards/auth.guard';
+import { AdminGuard } from 'src/guards/admin.guard';
 
 @Controller('auth')
 @Serialize(UserDto)
@@ -58,21 +59,25 @@ export class UsersController {
   }
 
   @Get('/:id')
+  @UseGuards(AdminGuard)
   findUser(@Param('id') id: string) {
     return this.usersService.findOne(parseInt(id));
   }
 
   @Get()
+  @UseGuards(AdminGuard)
   findAllUsers(@Query('email') email: string) {
     return this.usersService.find(email);
   }
 
   @Patch('/:id')
+  @UseGuards(AdminGuard)
   updateUser(@Param('id') id: string, @Body() body: UpdateUserDto) {
     return this.usersService.update(parseInt(id), body);
   }
 
   @Delete('/:id')
+  @UseGuards(AdminGuard)
   removeUser(@Param('id') id: string) {
     return this.usersService.remove(parseInt(id));
   }

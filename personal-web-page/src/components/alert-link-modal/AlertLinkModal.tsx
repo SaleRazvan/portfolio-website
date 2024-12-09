@@ -35,7 +35,7 @@ export default function AlertLinkModal({
             </Button>
           </AlertDialog.Cancel>
           <AlertDialog.Action>
-            <Button asChild color={dynamicColor} variant="solid" size="3">
+            <Button asChild color={dynamicColor} size="3">
               <Link target="_blank" href={href}>
                 {t(action)}
               </Link>

@@ -2,8 +2,9 @@ import { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { AppContext } from "../../AppContext";
 import { Callout, Flex, Heading } from "@radix-ui/themes";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
+import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import MapChart from "./MapChart";
+import ApiForm from "./ApiForm";
 
 export default function ApiBottomSlot() {
   const { t } = useTranslation();
@@ -17,12 +18,14 @@ export default function ApiBottomSlot() {
 
       <Callout.Root>
         <Callout.Icon>
-          <InfoCircledIcon />
+          <ExclamationTriangleIcon />
         </Callout.Icon>
-        <Callout.Text weight="medium">{t("api.warning2")}</Callout.Text>
+        <Callout.Text weight="medium">{t("api.warning")}</Callout.Text>
       </Callout.Root>
 
       <MapChart />
+
+      <ApiForm />
     </Flex>
   );
 }

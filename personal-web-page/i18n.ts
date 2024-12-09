@@ -113,6 +113,10 @@ i18n
             map: "Leaflet-powered interactive map",
             warning2:
               "Feel free to help me populate the DB. Keep in mind though, records need to be validated before showing up",
+            country: "Add Country",
+            fact: "Add Fact",
+            button: "Submit",
+            success: "Request sent succesfully",
           },
           notAvailable: {
             title: "Sorry, this route is not available",
@@ -213,13 +217,17 @@ i18n
           api: {
             title: "Incearca-mi API-ul",
             shortDesc:
-              "O hartă creată cu Leaflet, cu markere care dezvăluie curiozități despre fiecare țară, preluate din backend-ul personalizat creat de mine",
+              "O harta creata cu Leaflet, cu markere care dezvaluie curiozitati despre fiecare tara, preluate din backend-ul personalizat creat de mine",
             warning:
               "Din cauza limitarilor furnizorului, incarcarea hartii poate dura pana la un minut",
             github: "Acceseaza cod sursa",
             map: "Harta interactiva (Leaflet)",
             warning2:
               "Simte-te liber sa ma ajuti sa populez baza de date. Tine cont insa ca inregistrarile trebuie validate înainte de a fi afisate",
+            country: "Tara",
+            fact: "Curiozitate",
+            button: "Trimite",
+            success: "Request trimis cu succes",
           },
           notAvailable: {
             title: "Ruta curenta nu este disponibila",

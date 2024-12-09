@@ -104,7 +104,7 @@ export default function HomeBottomSlot() {
             </DataList.Item>
           </DataList.Root>
           <AlertLinkModal action="home.cv" href="/SALE RAZVAN.pdf">
-            <Button variant="solid" size="3" style={{ maxWidth: "30%" }}>
+            <Button size="3" style={{ maxWidth: "30%" }}>
               {t("home.cv")}
             </Button>
           </AlertLinkModal>
