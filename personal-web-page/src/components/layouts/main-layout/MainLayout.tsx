@@ -7,9 +7,14 @@ import { AppContext } from "../../../AppContext";
 type MainLayoutProps = {
   topSlot: React.ReactElement;
   bottomSlot: React.ReactElement;
+  headerless?: boolean;
 };
 
-export default function MainLayout({ topSlot, bottomSlot }: MainLayoutProps) {
+export default function MainLayout({
+  topSlot,
+  bottomSlot,
+  headerless = false,
+}: MainLayoutProps) {
   const { theme } = useContext(AppContext);
 
   return (
@@ -18,7 +23,7 @@ export default function MainLayout({ topSlot, bottomSlot }: MainLayoutProps) {
         direction="column"
         className={`${styles.layoutContainer} ${styles[theme]} ${theme}`}
       >
-        <Header />
+        {!headerless && <Header />}
         <Box className={`${styles.topContent} ${styles[theme]}`} p="6">
           {topSlot}
         </Box>

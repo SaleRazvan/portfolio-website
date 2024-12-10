@@ -21,7 +21,7 @@ export const euCountriesCoordinates = [
   { name: "Hungary", latitude: 47.1625, longitude: 19.5033 },
   { name: "Iceland", latitude: 64.9631, longitude: -19.0208 },
   { name: "Ireland", latitude: 53.1424, longitude: -7.6921 },
-  { name: "Italy", latitude: 41.8719, longitude: 12.5674 },
+  { name: "Italy", latitude: 40.8518, longitude: 14.2681 },
   { name: "Kazakhstan", latitude: 48.0196, longitude: 66.9237 },
   { name: "Kosovo", latitude: 42.6026, longitude: 20.9026 },
   { name: "Latvia", latitude: 56.8796, longitude: 24.6032 },

@@ -124,6 +124,12 @@ i18n
               "Please try one of the following routes instead: /home/{lang}, /skills/{lang}, /services/{lang}",
             navigate: "Or navigate home by pressing",
           },
+          smallScreen: {
+            title:
+              "Sorry, this website is not yet optimized for mobile devices",
+            warning:
+              "Please retry this operation on a device with larger resolution",
+          },
         },
       },
       ro: {
@@ -234,6 +240,12 @@ i18n
             warning:
               "Incearca una din urmatoarele rute: /home/{lang}, /skills/{lang}, /services/{lang}",
             navigate: "Sau actioneaza trimitere folosind butonul",
+          },
+          smallScreen: {
+            title:
+              "Din pacate, site-ul nu este inca optimizat pentru dispozitive mobile",
+            warning:
+              "Accesarea este restrictionata dispozitivelor cu rezolutii mai mari",
           },
         },
       },
