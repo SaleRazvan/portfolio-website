@@ -22,7 +22,7 @@ export default function AlertLinkModal({
       <AlertDialog.Trigger style={{ cursor: "pointer" }}>
         {children}
       </AlertDialog.Trigger>
-      <AlertDialog.Content maxWidth="20%">
+      <AlertDialog.Content maxWidth="384px">
         <AlertDialog.Title size="3">{t("dialog.title")}</AlertDialog.Title>
         <AlertDialog.Description size="2">
           {t("dialog.desc")}

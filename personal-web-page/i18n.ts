@@ -124,6 +124,12 @@ i18n
               "Please try one of the following routes instead: /home/{lang}, /skills/{lang}, /services/{lang}",
             navigate: "Or navigate home by pressing",
           },
+          smallScreen: {
+            title:
+              "Sorry, this website is not yet optimized for mobile devices",
+            warning:
+              "Please retry this operation on a device with larger resolution",
+          },
         },
       },
       ro: {
@@ -146,14 +152,14 @@ i18n
           home: {
             title: "Bun venit",
             shortDesc:
-              "Sunt Sale Razvan și aici public munca, pasiunile și proiectele mele. Fie ca esti aici sa explorezi proiectele mele sau sa te conectezi, ma bucur ca ai ajuns. Arunca o privire si nu ezita sa ma contactezi!",
+              "Sunt Sale Razvan si aici public munca, pasiunile și proiectele mele. Fie ca esti aici sa explorezi proiectele sau sa ma contactezi, ma bucur ca esti aici. Arunca o privire si nu ezita sa ma contactezi!",
             longDesc:
-              "Dezvoltator Fullstack JavaScript/TypeScript, specializat in crearea de aplicatii web scalabile, utilizand React, Node.js si tehnologii de baze de date de ultima generatie",
+              "Dezvoltator Fullstack JavaScript/TypeScript, specializat in construirea aplicatiilor web scalabile, utilizand React, Node.js si tehnologii de baze de date de ultima generatie",
             workStatus: "Starea de munca",
             available: "Disponibil",
             phone: "Numar de telefon",
             about: "Despre mine",
-            subtitle: "Bun venit! Sunt Sale Razvan!",
+            subtitle: "Salut! Sunt Sale Razvan!",
             role: "Ocupatie curenta",
             developer: "Dezvoltator JS",
             company: "Companie curenta",
@@ -163,7 +169,7 @@ i18n
             education: "Studii",
             highschool: "Liceul de Informatica Tiberiu Popoviciu",
             university: "Universitatea Babes-Bolyai",
-            languages: "Limbi stiute",
+            languages: "Limbi cunoscute",
             romanian: "Romana",
             english: "Engleza",
             german: "Germana",
@@ -176,15 +182,15 @@ i18n
           skills: {
             title: "Competente si expertiza",
             shortDesc:
-              "Exploreaza competentele mele tehnice, si tehnologiile care imi definesc abordarea de programare",
-            warning: "Atentie: lista prezentata nu este exhaustiva",
+              "Competentele mele tehnice, si tehnologiile care imi definesc abordarea de programare",
+            warning: "Atentie: lista prezenta nu este exhaustiva",
             linkedin: "Lista completa",
             list: "Lista de competente",
           },
           services: {
             title: "Servicii oferite",
             shortDesc:
-              "Exploreaza serviciile de dezvoltare web oferite. Nu ezita sa ma contactezi!",
+              "Serviciile de dezvoltare web oferite. Nu ezita sa ma contactezi!",
             warning:
               "Informatiile din aceasta sectiune ar putea fi invechite. Pentru informatii actualizate, rog contactarea directa",
             list: "Lista de servicii",
@@ -203,7 +209,7 @@ i18n
             },
             uiuxdesign: {
               title: "Design UI/UX",
-              desc: "Crearea unor interfete facile si atractive dpdv vizual, prin colaborarea activa cu designeri UX",
+              desc: "Furnizarea de interfete facile si atractive dpdv vizual, prin colaborarea activa cu designeri UX",
             },
             serverside: {
               title: "Programare Server-side",
@@ -211,19 +217,19 @@ i18n
             },
             techconsult: {
               title: "Consultare tehnica",
-              desc: "Furnizarea de servicii de consultanta tehnica pentru a ajuta clientii sa planifice, sa proiecteze si sa implementeze solutii JS",
+              desc: "Servicii de consultanta tehnica, pentru a ajuta clientii sa planifice, sa proiecteze si sa implementeze solutii JS",
             },
           },
           api: {
             title: "Incearca-mi API-ul",
             shortDesc:
-              "O harta creata cu Leaflet, cu markere care dezvaluie curiozitati despre fiecare tara, preluate din backend-ul personalizat creat de mine",
+              "O harta generata cu Leaflet, cu markere care dezvaluie curiozitati despre fiecare tara, preluate de pe propriul server",
             warning:
-              "Din cauza limitarilor furnizorului, incarcarea hartii poate dura pana la un minut",
+              "Din cauza limitarilor de la furnizor, incarcarea hartii poate dura pana la un minut",
             github: "Acceseaza cod sursa",
             map: "Harta interactiva (Leaflet)",
             warning2:
-              "Simte-te liber sa ma ajuti sa populez baza de date. Tine cont insa ca inregistrarile trebuie validate înainte de a fi afisate",
+              "Ajuta-ma sa populez baza de date. Tine cont insa ca inregistrarile trebuie validate înainte de a fi afisate",
             country: "Tara",
             fact: "Curiozitate",
             button: "Trimite",
@@ -234,6 +240,12 @@ i18n
             warning:
               "Incearca una din urmatoarele rute: /home/{lang}, /skills/{lang}, /services/{lang}",
             navigate: "Sau actioneaza trimitere folosind butonul",
+          },
+          smallScreen: {
+            title:
+              "Din pacate, site-ul nu este inca optimizat pentru dispozitive mobile",
+            warning:
+              "Accesarea este restrictionata dispozitivelor cu rezolutii mai mari",
           },
         },
       },

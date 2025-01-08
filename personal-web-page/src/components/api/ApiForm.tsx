@@ -96,8 +96,12 @@ export default function ApiForm() {
       ></TextField.Root>
       <Button
         onClick={handleCountryAddition}
-        style={{ cursor: "pointer" }}
-        disabled={Boolean(error.fact)}
+        style={{
+          cursor: `${
+            error.fact || euCountries.length === 0 ? "not-allowed" : "pointer"
+          }`,
+        }}
+        disabled={Boolean(error.fact || euCountries.length === 0)}
       >
         {t("api.button")}
       </Button>
