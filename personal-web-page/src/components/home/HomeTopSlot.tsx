@@ -61,7 +61,7 @@ export default function HomeTopSlot() {
           <DataList.Label>{t("home.workStatus")}</DataList.Label>
           <DataList.Value>
             <Badge color="jade" variant="soft">
-              {t("home.available")}
+              {t("home.notAvailable")}
             </Badge>
           </DataList.Value>
         </DataList.Item>
@@ -86,11 +86,11 @@ export default function HomeTopSlot() {
           <DataList.Label>{t("home.company")}</DataList.Label>
           <DataList.Value>
             <AlertLinkModal
-              action="dialog.endava"
-              href="https://www.endava.com/"
+              action="dialog.bmw"
+              href="https://bmwtechworks.ro/en"
             >
               <Text size="2" color={dynamicColor}>
-                Endava
+                BMW TechWorks Romania
               </Text>
             </AlertLinkModal>
           </DataList.Value>

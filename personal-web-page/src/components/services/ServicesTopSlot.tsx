@@ -1,10 +1,10 @@
-import { InfoCircledIcon } from "@radix-ui/react-icons";
-import { Button, Callout, Flex, Heading, Text } from "@radix-ui/themes";
-import PersonalCard from "../personal-card/PersonalCard";
+import { Button, Flex, Heading, IconButton, Text } from "@radix-ui/themes";
 import AlertLinkModal from "../alert-link-modal/AlertLinkModal";
 import { useContext } from "react";
 import { AppContext } from "../../AppContext";
 import { useTranslation } from "react-i18next";
+import PersonalCard from "../personal-card/PersonalCard";
+import { LayersIcon } from "@radix-ui/react-icons";
 
 export default function ServicesTopSlot() {
   const { dynamicColor } = useContext(AppContext);
@@ -20,14 +20,15 @@ export default function ServicesTopSlot() {
         {t("services.shortDesc")}
       </Text>
 
-      <Callout.Root>
-        <Callout.Icon>
-          <InfoCircledIcon />
-        </Callout.Icon>
-        <Callout.Text weight="medium">{t("services.warning")}</Callout.Text>
-      </Callout.Root>
+      <IconButton variant="surface" style={{ height: "60px", width: "60px" }}>
+        <LayersIcon style={{ width: "50%", height: "auto" }} />
+      </IconButton>
 
-      <PersonalCard />
+      <PersonalCard
+        pfpHref="/razvan.jpg"
+        name="Sale Razvan"
+        title="Software Engineer"
+      />
 
       <AlertLinkModal
         action="dialog.github"

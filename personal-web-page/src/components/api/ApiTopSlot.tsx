@@ -1,10 +1,8 @@
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { AppContext } from "../../AppContext";
-import { Button, Callout, Flex, Heading, Text } from "@radix-ui/themes";
-import PersonalCard from "../personal-card/PersonalCard";
-import AlertLinkModal from "../alert-link-modal/AlertLinkModal";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
+import { Callout, Flex, Heading, IconButton, Text } from "@radix-ui/themes";
+import { InfoCircledIcon, LightningBoltIcon } from "@radix-ui/react-icons";
 
 export default function ApiTopSlot() {
   const { t } = useTranslation();
@@ -18,23 +16,16 @@ export default function ApiTopSlot() {
 
       <Text size="2">{t("api.shortDesc")}</Text>
 
+      <IconButton variant="surface" style={{ height: "60px", width: "60px" }}>
+        <LightningBoltIcon style={{ width: "50%", height: "auto" }} />
+      </IconButton>
+
       <Callout.Root>
         <Callout.Icon>
           <InfoCircledIcon />
         </Callout.Icon>
         <Callout.Text weight="medium">{t("api.warning2")}</Callout.Text>
       </Callout.Root>
-
-      <PersonalCard />
-
-      <AlertLinkModal
-        action="dialog.github"
-        href="https://github.com/SaleRazvan/portfolio-website"
-      >
-        <Button size="3" style={{ maxWidth: "30%" }}>
-          {t("api.github")}
-        </Button>
-      </AlertLinkModal>
     </Flex>
   );
 }

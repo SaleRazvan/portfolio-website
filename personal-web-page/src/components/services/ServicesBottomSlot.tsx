@@ -1,4 +1,4 @@
-import { Flex, Grid, Heading } from "@radix-ui/themes";
+import { Callout, Flex, Grid, Heading } from "@radix-ui/themes";
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { AppContext } from "../../AppContext";
@@ -9,6 +9,7 @@ import {
   DesktopIcon,
   GearIcon,
   GlobeIcon,
+  InfoCircledIcon,
   LinkBreak2Icon,
 } from "@radix-ui/react-icons";
 
@@ -17,10 +18,17 @@ export default function ServicesBottomSlot() {
   const { dynamicColor } = useContext(AppContext);
 
   return (
-    <Flex direction="column" align="center" justify="center">
-      <Heading as="h1" size="6" mb="5" color={dynamicColor}>
+    <Flex direction="column" align="center" justify="center" gap="5">
+      <Heading as="h1" size="6" color={dynamicColor}>
         {t("services.list")}
       </Heading>
+
+      <Callout.Root>
+        <Callout.Icon>
+          <InfoCircledIcon />
+        </Callout.Icon>
+        <Callout.Text weight="medium">{t("services.warning")}</Callout.Text>
+      </Callout.Root>
 
       <Grid columns="3" gap="3" rows="2" maxWidth="50%">
         <ServicesCard

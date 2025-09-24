@@ -1,10 +1,10 @@
-import { Button, Callout, Flex, Heading, Text } from "@radix-ui/themes";
+import { Button, Flex, Heading, IconButton, Text } from "@radix-ui/themes";
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { AppContext } from "../../AppContext";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
 import AlertLinkModal from "../alert-link-modal/AlertLinkModal";
 import PersonalCard from "../personal-card/PersonalCard";
+import { MixIcon } from "@radix-ui/react-icons";
 
 export default function SkillsTopSlot() {
   const { t } = useTranslation();
@@ -18,14 +18,15 @@ export default function SkillsTopSlot() {
 
       <Text size="2">{t("skills.shortDesc")}</Text>
 
-      <Callout.Root>
-        <Callout.Icon>
-          <InfoCircledIcon />
-        </Callout.Icon>
-        <Callout.Text weight="medium">{t("services.warning")}</Callout.Text>
-      </Callout.Root>
+      <IconButton variant="surface" style={{ height: "60px", width: "60px" }}>
+        <MixIcon style={{ width: "50%", height: "auto" }} />
+      </IconButton>
 
-      <PersonalCard />
+      <PersonalCard
+        pfpHref="/razvan.jpg"
+        name="Sale Razvan"
+        title="Software Engineer"
+      />
 
       <AlertLinkModal
         action="dialog.linkedin"
