@@ -3,23 +3,23 @@ import { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { AppContext } from "../../AppContext";
 import SkillProgress from "./SkillProgress";
-import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
 
 export default function SkillsBottomSlot() {
   const { t } = useTranslation();
   const { dynamicColor } = useContext(AppContext);
 
   return (
-    <Flex direction="column" align="center" justify="center" gap="6">
+    <Flex direction="column" align="center" justify="center" gap="5">
       <Heading as="h1" size="6" color={dynamicColor}>
         {t("skills.list")}
       </Heading>
 
       <Callout.Root>
         <Callout.Icon>
-          <ExclamationTriangleIcon />
+          <InfoCircledIcon />
         </Callout.Icon>
-        <Callout.Text weight="medium">{t("skills.warning")}</Callout.Text>
+        <Callout.Text weight="medium">{t("services.warning")}</Callout.Text>
       </Callout.Root>
 
       <Flex align="center" justify="between" gap="9">

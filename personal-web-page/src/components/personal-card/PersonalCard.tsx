@@ -1,16 +1,26 @@
 import { Avatar, Box, Flex, Text, Card } from "@radix-ui/themes";
 
-export default function PersonalCard() {
+type PersonalCardProps = {
+  pfpHref?: string;
+  name?: string;
+  title?: string;
+};
+
+export default function PersonalCard({
+  pfpHref,
+  name,
+  title,
+}: PersonalCardProps) {
   return (
     <Card variant="classic">
       <Flex gap="3" align="center">
-        <Avatar size="3" src="/razvan.jpg" radius="full" fallback="Avatar" />
+        <Avatar size="3" src={pfpHref} radius="full" fallback="Avatar" />
         <Box>
           <Text as="div" size="2" weight="bold">
-            Sale Razvan
+            {name}
           </Text>
           <Text as="div" size="2" color="gray">
-            Software Engineer
+            {title}
           </Text>
         </Box>
       </Flex>

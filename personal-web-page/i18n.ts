@@ -23,6 +23,7 @@ i18n
             github: "Open GitHub",
             linkedin: "Open LinkedIn",
             endava: "Open Endava website",
+            bmw: "Open BMW website",
             email: "Write E-mail",
           },
           header: {
@@ -30,6 +31,7 @@ i18n
             skills: "Skills",
             services: "Services",
             api: "Play with my API",
+            journeys: "My travels",
           },
           home: {
             title: "Welcome",
@@ -39,6 +41,7 @@ i18n
               "Dynamic Fullstack JavaScript/TypeScript Developer adept at building high-performance, scalable web applications using React, Node.js, and cutting-edge database technologies",
             workStatus: "Work Status",
             available: "Available for work",
+            notAvailable: "Happily employed",
             company: "Current Company",
             phone: "Phone",
             about: "About me",
@@ -118,6 +121,17 @@ i18n
             button: "Submit",
             success: "Request sent succesfully",
           },
+          journeys: {
+            title: "My travels",
+            shortDesc:
+              "A collection of moments and memories from my journeys around the world, captured through my lens",
+            submit: "Submit",
+            cancel: "Cancel",
+            toggle: "Toggle section",
+            unlockDesc:
+              "In order to access following section, a secret key is required",
+            secretKey: "Add secret key",
+          },
           notAvailable: {
             title: "Sorry, this route is not available",
             warning:
@@ -141,6 +155,7 @@ i18n
             github: "Accesati GitHub",
             linkedin: "Accesati LinkedIn",
             endava: "Accesati site-ul Endava",
+            bmw: "Accesati site-ul BMW",
             email: "Scrieti E-mail",
           },
           header: {
@@ -148,6 +163,7 @@ i18n
             skills: "Competente",
             services: "Servicii oferite",
             api: "Incearca-mi API-ul",
+            journeys: "Calatorii",
           },
           home: {
             title: "Bun venit",
@@ -157,6 +173,7 @@ i18n
               "Dezvoltator Fullstack JavaScript/TypeScript, specializat in construirea aplicatiilor web scalabile, utilizand React, Node.js si tehnologii de baze de date de ultima generatie",
             workStatus: "Starea de munca",
             available: "Disponibil",
+            notAvailable: "Angajat",
             phone: "Numar de telefon",
             about: "Despre mine",
             subtitle: "Salut! Sunt Sale Razvan!",
@@ -234,6 +251,16 @@ i18n
             fact: "Curiozitate",
             button: "Trimite",
             success: "Request trimis cu succes",
+          },
+          journeys: {
+            title: "Calatorii",
+            shortDesc: "O colectie de momente si memorii din calatoriile mele",
+            submit: "Trimite",
+            cancel: "Anuleaza",
+            toggle: "Activeaza sectiunea",
+            unlockDesc:
+              "Accesul la sectiunea de dedesubt este restrictionat de facilitarea unei chei secrete",
+            secretKey: "Insereaza cheia secreta",
           },
           notAvailable: {
             title: "Ruta curenta nu este disponibila",

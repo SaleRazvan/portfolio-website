@@ -11,7 +11,7 @@ export default function ApiBottomSlot() {
   const { dynamicColor } = useContext(AppContext);
 
   return (
-    <Flex direction="column" align="center" justify="center" gap="6">
+    <Flex direction="column" align="center" justify="center" gap="5">
       <Heading as="h1" size="6" color={dynamicColor}>
         {t("api.map")}
       </Heading>
