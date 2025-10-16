@@ -25,7 +25,7 @@ export default function HomeTopSlot() {
       <Heading as="h1" size="6" color={dynamicColor}>
         {t("home.title")}
       </Heading>
-      <Text size="2" align="center" style={{ maxWidth: "60%" }}>
+      <Text size="2" align="center">
         {t("home.shortDesc")}
       </Text>
 

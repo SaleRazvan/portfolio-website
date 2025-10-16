@@ -26,6 +26,7 @@ export default function HomeBottomSlot() {
       <Heading as="h1" size="6" mb="5" color={dynamicColor}>
         {t("home.about")}
       </Heading>
+
       <Callout.Root mb="5">
         <Callout.Icon>
           <QuoteIcon />
@@ -34,9 +35,25 @@ export default function HomeBottomSlot() {
           Good code is like a joke: if you have to explain it, it's not working.
         </Callout.Text>
       </Callout.Root>
-      <Flex justify="center" align="center" gap="8">
+
+      <Flex
+        direction={{
+          initial: "column",
+          md: "row",
+        }}
+        justify="center"
+        align="center"
+        gap="8"
+      >
         <img className={styles.img} src="/razvan.jpg" />
-        <Flex direction="column" gap="4" maxWidth="35%">
+        <Flex
+          direction="column"
+          gap="4"
+          maxWidth={{
+            initial: "100%",
+            md: "35%",
+          }}
+        >
           <Heading as="h3" size="3">
             {t("home.subtitle")}
           </Heading>
@@ -44,7 +61,13 @@ export default function HomeBottomSlot() {
             {t("home.developer")}
           </Heading>
           <Text size="2">{t("home.longDesc")}</Text>
-          <DataList.Root size="1">
+          <DataList.Root
+            size="1"
+            orientation={{
+              initial: "vertical",
+              md: "horizontal",
+            }}
+          >
             <DataList.Item>
               <DataList.Label>{t("home.birthday")}</DataList.Label>
               <DataList.Value>March 29, 1999</DataList.Value>
@@ -104,9 +127,7 @@ export default function HomeBottomSlot() {
             </DataList.Item>
           </DataList.Root>
           <AlertLinkModal action="home.cv" href="/SALE RAZVAN.pdf">
-            <Button size="3" style={{ maxWidth: "30%" }}>
-              {t("home.cv")}
-            </Button>
+            <Button size="3">{t("home.cv")}</Button>
           </AlertLinkModal>
         </Flex>
       </Flex>

@@ -22,7 +22,12 @@ export default function SkillsBottomSlot() {
         <Callout.Text weight="medium">{t("services.warning")}</Callout.Text>
       </Callout.Root>
 
-      <Flex align="center" justify="between" gap="9">
+      <Flex
+        direction={{ initial: "column", md: "row" }}
+        align="center"
+        justify="between"
+        gap="9"
+      >
         <Flex direction="column" gap="5">
           <SkillProgress skill="FrontEnd Development" value={90} isPrimary />
           <SkillProgress skill="Frameworks" value={90} isSecondary />

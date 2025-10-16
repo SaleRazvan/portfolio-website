@@ -16,13 +16,16 @@
 .tripImg {
   border: 3px solid white;
   border-radius: 5%;
-  max-width: 20%;
-  height: 500px;
   object-fit: cover;
   transition: 0.3s ease;
-}
 
-.tripImg:hover {
-  box-shadow: 0 0 20px rgba(255, 255, 255, 1); /* soft shadow */
-  transform: scale(1.1);
+  @media screen and (min-width: 1024px) {
+    max-width: 20%;
+    height: 500px;
+  }
+
+  &:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1); /* soft shadow */
+    transform: scale(1.1);
+  }
 }

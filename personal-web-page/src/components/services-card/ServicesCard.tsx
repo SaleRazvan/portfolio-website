@@ -11,7 +11,7 @@ export default function ServicesCard({ icon, title, desc }: ServicesCardProps) {
   const { t } = useTranslation();
 
   return (
-    <Card size="4">
+    <Card size={{ initial: "1", md: "4" }}>
       <Flex
         direction="column"
         justify="center"

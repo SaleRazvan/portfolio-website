@@ -5,17 +5,16 @@ import React, { useEffect, useState } from "react";
 import { navigationScreens } from "./common/constants";
 import NotAvailable from "./components/not-available/NotAvailable";
 import { EuCountry } from "./common/types";
-import SmallScreen from "./components/small-screen/SmallScreen";
 
 export default function App() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [euCountriesData, setEuCountriesData] = useState<EuCountry[]>([]);
   const dynamicColor = theme === "dark" ? "amber" : "indigo";
-  const [innerWidth, setInnerWidth] = useState<number>(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
-      setInnerWidth(window.innerWidth);
+      setScreenWidth(window.innerWidth);
     };
 
     window.addEventListener("resize", handleResize);
@@ -31,6 +30,8 @@ export default function App() {
         dynamicColor,
         euCountriesData,
         setEuCountriesData,
+        screenWidth,
+        setScreenWidth,
       }}
     >
       <Theme
@@ -40,24 +41,20 @@ export default function App() {
         radius="large"
       >
         <BrowserRouter>
-          {innerWidth > 1000 ? (
-            <Routes>
-              {navigationScreens.map((screen) =>
-                [`/${screen.label}/ro`, `/${screen.label}/en`].map((path) => {
-                  return (
-                    <Route
-                      key={path}
-                      path={path}
-                      element={React.createElement(screen.component)}
-                    />
-                  );
-                })
-              )}
-              <Route path="*" element={<NotAvailable />} />
-            </Routes>
-          ) : (
-            <SmallScreen />
-          )}
+          <Routes>
+            {navigationScreens.map((screen) =>
+              [`/${screen.label}/ro`, `/${screen.label}/en`].map((path) => {
+                return (
+                  <Route
+                    key={path}
+                    path={path}
+                    element={React.createElement(screen.component)}
+                  />
+                );
+              })
+            )}
+            <Route path="*" element={<NotAvailable />} />
+          </Routes>
         </BrowserRouter>
       </Theme>
     </AppContext.Provider>

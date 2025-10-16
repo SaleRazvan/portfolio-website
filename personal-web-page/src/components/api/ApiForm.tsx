@@ -72,7 +72,13 @@ export default function ApiForm() {
   const euCountries = euCountriesData.map((countryData) => countryData.country);
 
   return (
-    <Flex width="100%" align="center" justify="center" gap="4">
+    <Flex
+      direction={{ initial: "column", md: "row" }}
+      width="100%"
+      align="center"
+      justify="center"
+      gap="4"
+    >
       <Text size="2">{t("api.country")}</Text>
       <Select.Root
         defaultValue="Albania"

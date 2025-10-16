@@ -30,10 +30,10 @@ export default function JourneysTopSlot({
 
       <Text size="2">{t("journeys.shortDesc")}</Text>
 
-      <Flex align="center" justify="center" gap="6">
+      <Flex align="center" justify="center" gap={{ initial: "3", md: "6" }}>
         <PersonalCard
           pfpHref="/razvan.jpg"
-          name="Sale Razvan"
+          name="Razvan"
           title="Software Engineer"
         />
 
@@ -41,52 +41,15 @@ export default function JourneysTopSlot({
           <ImageIcon style={{ width: "50%", height: "auto" }} />
         </IconButton>
 
-        <PersonalCard
-          pfpHref="/roxana.jpg"
-          name="Rus Roxana"
-          title="QA Engineer"
-        />
+        <PersonalCard pfpHref="/roxana.jpg" name="Roxana" title="QA Engineer" />
       </Flex>
 
       <AlertDialog.Root>
         <AlertDialog.Trigger style={{ cursor: "pointer" }}>
-          <Button
-            size="3"
-            style={{ maxWidth: "30%" }}
-            onClick={onKeySubmission}
-          >
+          <Button size="3" onClick={onKeySubmission}>
             {t("journeys.toggle")}
           </Button>
         </AlertDialog.Trigger>
-
-        {/* <AlertDialog.Content maxWidth="384px">
-          <AlertDialog.Title size="3">{t("journeys.unlock")}</AlertDialog.Title>
-          <AlertDialog.Description size="2" mb="4">
-            {t("journeys.unlockDesc")}
-          </AlertDialog.Description>
-
-           <TextField.Root
-            placeholder={t("journeys.secretKey")}
-            size="3"
-            color={dynamicColor}
-            variant="soft"
-            ref={inputRef}
-          /> 
-
-           <Flex gap="3" mt="4" justify="end">
-            <AlertDialog.Action>
-              <Button color={dynamicColor} size="3">
-                {t("journeys.submit")}
-              </Button>
-            </AlertDialog.Action>
-
-            <AlertDialog.Cancel>
-              <Button variant="surface" color={dynamicColor} size="3">
-                {t("journeys.cancel")}
-              </Button>
-            </AlertDialog.Cancel>
-          </Flex>
-        </AlertDialog.Content> */}
       </AlertDialog.Root>
     </Flex>
   );

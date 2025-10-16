@@ -184,7 +184,7 @@ i18n
             from: "Domiciliu",
             workexp: "Experienta profesionala",
             education: "Studii",
-            highschool: "Liceul de Informatica Tiberiu Popoviciu",
+            highschool: "Liceul de Informatica T. Popoviciu",
             university: "Universitatea Babes-Bolyai",
             languages: "Limbi cunoscute",
             romanian: "Romana",

@@ -34,9 +34,7 @@ export default function ServicesTopSlot() {
         action="dialog.github"
         href="https://github.com/SaleRazvan"
       >
-        <Button size="3" style={{ maxWidth: "30%" }}>
-          {t("services.github")}
-        </Button>
+        <Button size="3">{t("services.github")}</Button>
       </AlertLinkModal>
     </Flex>
   );

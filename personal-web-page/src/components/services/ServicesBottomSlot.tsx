@@ -30,7 +30,12 @@ export default function ServicesBottomSlot() {
         <Callout.Text weight="medium">{t("services.warning")}</Callout.Text>
       </Callout.Root>
 
-      <Grid columns="3" gap="3" rows="2" maxWidth="50%">
+      <Grid
+        columns="3"
+        gap="3"
+        rows="2"
+        maxWidth={{ initial: "100%", md: "50%" }}
+      >
         <ServicesCard
           icon={<GearIcon style={{ height: "50%", width: "auto" }} />}
           title="services.techconsult.title"

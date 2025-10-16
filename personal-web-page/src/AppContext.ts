@@ -7,6 +7,8 @@ type AppContextType = {
   dynamicColor: "amber" | "indigo";
   euCountriesData: EuCountry[];
   setEuCountriesData: Dispatch<SetStateAction<EuCountry[]>>;
+  screenWidth: number;
+  setScreenWidth: Dispatch<SetStateAction<number>>;
 };
 
 export const AppContext = createContext<AppContextType>({
@@ -15,4 +17,6 @@ export const AppContext = createContext<AppContextType>({
   dynamicColor: "amber",
   euCountriesData: [],
   setEuCountriesData: () => {},
+  screenWidth: 520,
+  setScreenWidth: () => {},
 });

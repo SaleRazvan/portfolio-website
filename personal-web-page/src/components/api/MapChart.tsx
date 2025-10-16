@@ -77,7 +77,11 @@ export default function MapChart() {
     );
 
   return (
-    <Box className={styles.mapContainer} width="60%" minHeight="400px">
+    <Box
+      className={styles.mapContainer}
+      width={{ initial: "100%", md: "60%" }}
+      minHeight="400px"
+    >
       <MapContainer {...mapOptions} style={{ height: "100%", width: "100%" }}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
