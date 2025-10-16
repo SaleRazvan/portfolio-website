@@ -9,8 +9,8 @@ import {
   EyeClosedIcon,
   EyeOpenIcon,
   HomeIcon,
-  TrackNextIcon,
-  TrackPreviousIcon,
+  PinLeftIcon,
+  PinRightIcon,
 } from "@radix-ui/react-icons";
 import { useContext } from "react";
 import { AppContext } from "../../AppContext";
@@ -131,14 +131,14 @@ export function Header() {
           style={{ cursor: "pointer" }}
           onClick={() => navigateInDirection("left")}
         >
-          <TrackPreviousIcon />
+          <PinLeftIcon />
         </IconButton>
         <IconButton
           variant="surface"
           style={{ cursor: "pointer" }}
           onClick={() => navigateInDirection("right")}
         >
-          <TrackNextIcon />
+          <PinRightIcon />
         </IconButton>
       </Flex>
       {Object.keys(languages).map((language) => (

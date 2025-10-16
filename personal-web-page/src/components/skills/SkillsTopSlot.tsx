@@ -16,7 +16,9 @@ export default function SkillsTopSlot() {
         {t("skills.title")}
       </Heading>
 
-      <Text size="2">{t("skills.shortDesc")}</Text>
+      <Text size="2" align="center">
+        {t("skills.shortDesc")}
+      </Text>
 
       <IconButton variant="surface" style={{ height: "60px", width: "60px" }}>
         <MixIcon style={{ width: "50%", height: "auto" }} />

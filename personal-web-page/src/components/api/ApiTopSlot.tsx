@@ -14,7 +14,9 @@ export default function ApiTopSlot() {
         {t("api.title")}
       </Heading>
 
-      <Text size="2">{t("api.shortDesc")}</Text>
+      <Text size="2" align="center">
+        {t("api.shortDesc")}
+      </Text>
 
       <IconButton variant="surface" style={{ height: "60px", width: "60px" }}>
         <LightningBoltIcon style={{ width: "50%", height: "auto" }} />

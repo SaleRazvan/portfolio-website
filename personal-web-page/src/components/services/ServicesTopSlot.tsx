@@ -16,7 +16,7 @@ export default function ServicesTopSlot() {
         {t("services.title")}
       </Heading>
 
-      <Text size="2" align="center" style={{ maxWidth: "60%" }}>
+      <Text size="2" align="center">
         {t("services.shortDesc")}
       </Text>
 

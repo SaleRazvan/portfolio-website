@@ -1,5 +1,5 @@
 import { Theme } from "@radix-ui/themes";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { AppContext } from "./AppContext";
 import React, { useEffect, useState } from "react";
 import { navigationScreens } from "./common/constants";
@@ -53,6 +53,7 @@ export default function App() {
                 );
               })
             )}
+            <Route path="/" element={<Navigate to="/home/en" replace />} />
             <Route path="*" element={<NotAvailable />} />
           </Routes>
         </BrowserRouter>

@@ -31,9 +31,9 @@ export default function ServicesBottomSlot() {
       </Callout.Root>
 
       <Grid
-        columns="3"
+        columns={{ initial: "2", md: "3" }}
         gap="3"
-        rows="2"
+        rows={{ initial: "3", md: "2" }}
         maxWidth={{ initial: "100%", md: "50%" }}
       >
         <ServicesCard

@@ -28,7 +28,9 @@ export default function JourneysTopSlot({
         {t("journeys.title")}
       </Heading>
 
-      <Text size="2">{t("journeys.shortDesc")}</Text>
+      <Text size="2" align="center">
+        {t("journeys.shortDesc")}
+      </Text>
 
       <Flex align="center" justify="center" gap={{ initial: "3", md: "6" }}>
         <PersonalCard

@@ -1,5 +1,7 @@
 .carouselContainer {
   animation: fadeIn 1s ease-in-out forwards;
+
+  min-height: 500px;
 }
 
 @keyframes fadeIn {
