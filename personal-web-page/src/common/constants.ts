@@ -3,6 +3,7 @@ import Home from "../components/home/Home";
 import Skills from "../components/skills/Skills";
 import Journeys from "../components/journeys/Journeys";
 import Career from "../components/career/Career";
+import HolidayFinder from "../components/holiday-finder/HolidayFinder";
 
 export const navigationScreens = [
   {
@@ -18,12 +19,16 @@ export const navigationScreens = [
     component: Career,
   },
   {
-    label: "journeys",
-    component: Journeys,
+    label: "holiday",
+    component: HolidayFinder,
   },
   {
     label: "api",
     component: Api,
+  },
+  {
+    label: "journeys",
+    component: Journeys,
   },
 ];
 

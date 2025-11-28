@@ -31,6 +31,7 @@ i18n
             skills: "Skills",
             career: "Career",
             services: "Services",
+            holiday: "Holiday Finder",
             api: "GeoData Visualizer",
             journeys: "My travels",
           },
@@ -136,6 +137,10 @@ i18n
               desc: "Provide technical consulting services to help clients plan, architect, and implement their JavaScript-based solutions",
             },
           },
+          holiday: {
+            title: "Holiday Finder",
+            shortDesc: "TBA",
+          },
           api: {
             title: "GeoData Visualizer",
             shortDesc:
@@ -193,6 +198,7 @@ i18n
             skills: "Competente",
             career: "Experienta de lucru",
             services: "Servicii oferite",
+            holiday: "Holiday Finder",
             api: "GeoData Visualizer",
             journeys: "Calatorii",
           },
