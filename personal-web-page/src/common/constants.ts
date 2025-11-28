@@ -1,8 +1,8 @@
 import Api from "../components/api/Api";
 import Home from "../components/home/Home";
-import Services from "../components/services/Services";
 import Skills from "../components/skills/Skills";
 import Journeys from "../components/journeys/Journeys";
+import Career from "../components/career/Career";
 
 export const navigationScreens = [
   {
@@ -14,8 +14,8 @@ export const navigationScreens = [
     component: Skills,
   },
   {
-    label: "services",
-    component: Services,
+    label: "career",
+    component: Career,
   },
   {
     label: "journeys",

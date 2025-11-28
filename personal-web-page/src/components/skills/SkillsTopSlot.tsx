@@ -30,12 +30,21 @@ export default function SkillsTopSlot() {
         title="Software Engineer"
       />
 
-      <AlertLinkModal
-        action="dialog.linkedin"
-        href="https://www.linkedin.com/in/razvan-sale-059647216/"
-      >
-        <Button size="3">{t("skills.linkedin")}</Button>
-      </AlertLinkModal>
+      <Flex gap={{ initial: "4", md: "6" }}>
+        <AlertLinkModal
+          action="dialog.linkedin"
+          href="https://www.linkedin.com/in/razvan-sale-059647216/"
+        >
+          <Button size="3">{t("skills.linkedin")}</Button>
+        </AlertLinkModal>
+
+        <AlertLinkModal
+          action="dialog.github"
+          href="https://github.com/SaleRazvan"
+        >
+          <Button size="3">{t("services.github")}</Button>
+        </AlertLinkModal>
+      </Flex>
     </Flex>
   );
 }

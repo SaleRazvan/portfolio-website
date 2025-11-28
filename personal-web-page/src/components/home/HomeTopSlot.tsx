@@ -61,7 +61,7 @@ export default function HomeTopSlot() {
           <DataList.Label>{t("home.workStatus")}</DataList.Label>
           <DataList.Value>
             <Badge color="jade" variant="soft">
-              {t("home.notAvailable")}
+              {t("home.available")}
             </Badge>
           </DataList.Value>
         </DataList.Item>

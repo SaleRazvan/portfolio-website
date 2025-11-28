@@ -27,9 +27,10 @@ Welcome to my personal portfolio page repository! This project showcases my skil
 ## Features
 
 - **Home Page**: General summary.
-- **Skills Page**: Dive into my tech toolkit: a personal journey through the technologies and skills that define my coding approach.
-- **Services Page**: Explore the web development services I provide, highlighting my expertise and capabilities.
-- **Play with my API Page**: Interact with a Leaflet-powered map with markers revealing fun facts for every country, dynamically fetched from my custom backend.
+- **Skills Page**: Explore the web development services I provide, and dive into my tech toolkit: a personal journey through the technologies and skills that define my coding approach.
+- **Career Page**: A curated showcase of my technical journey. Review my completed projects to see examples of problem-solving, data integration, and my commitment to clean, efficient web development.
+- **My Travels**: A collection of photography and reflections from my journeys worldwide.
+- **GeoData Visualizer**: Interact with a Leaflet-powered map with markers revealing fun facts for every country, dynamically fetched from my custom backend.
 
 ## Technologies Used
 
@@ -44,7 +45,7 @@ The template was generated using Vite
 
 ## How to View
 
-You can view the portfolio live at: [https://portfolio-website-frontend-ytg7.onrender.com/home/en](https://portfolio-website-frontend-ytg7.onrender.com/home/en)
+You can view the portfolio live at: [razvansale.dev](https://razvansale.dev/)
 
 Alternatively, clone this repository and proceed with project setup:
 
