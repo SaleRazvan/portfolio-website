@@ -14,3 +14,17 @@ export class GetDestinationsDto {
   @IsString()
   departureMonth: string;
 }
+
+export class GetDestinationsResponseDto {
+  @ApiProperty({ example: 'Paris' })
+  city: string;
+
+  @ApiProperty({ example: 'France' })
+  country: string;
+
+  @ApiProperty({ example: 'Known for romantic atmosphere and cuisine' })
+  reason: string;
+
+  @ApiProperty({ example: 'CDG' })
+  mainAirportIATACode: string;
+}

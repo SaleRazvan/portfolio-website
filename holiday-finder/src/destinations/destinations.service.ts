@@ -1,13 +1,23 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import {
+  BadGatewayException,
+  HttpException,
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
 import { InferenceClient } from '@huggingface/inference';
-import { GetDestinationsDto } from './dtos/get-destinations-dto';
+import {
+  GetDestinationsDto,
+  GetDestinationsResponseDto,
+} from './dtos/get-destinations-dto';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class DestinationsService {
   constructor(private configService: ConfigService) {}
 
-  async generateDestinations(filters: GetDestinationsDto) {
+  async generateDestinations(
+    filters: GetDestinationsDto,
+  ): Promise<Array<GetDestinationsResponseDto>> {
     const client = new InferenceClient(
       this.configService.get<string>('HF_KEY'),
     );
@@ -24,8 +34,8 @@ JSON Array Structure:
   {
     "city": "...",
     "country": "...",
-    "reason": "..."
-    "estimatedFlightPrice": "..."
+    "reason": "...",
+    "mainAirportIATACode": "..."
   },
   ... (2 more objects)
 ]`;
@@ -41,39 +51,47 @@ JSON Array Structure:
         ],
       });
 
-      const generatedText = response.choices[0].message.content;
+      const generatedText = response?.choices?.[0]?.message?.content;
+
+      if (!generatedText) {
+        throw new BadGatewayException(
+          `AI model returned empty response for prompt`,
+        );
+      }
+
       const jsonMatch = generatedText.match(/\[[\s\S]*\]/); // Look for JSON array
 
       if (!jsonMatch) {
-        console.error('No JSON array found in response:', generatedText);
-        throw new InternalServerErrorException(
+        throw new BadGatewayException(
           'Upstream service returned data without valid JSON array',
         );
       }
 
       try {
-        const parsedData = JSON.parse(jsonMatch[0]);
+        const parsedData: Array<GetDestinationsResponseDto> = JSON.parse(
+          jsonMatch[0],
+        );
 
         return parsedData;
       } catch (parseError) {
-        console.error(
-          'JSON parsing failed:',
-          parseError,
-          'Raw data:',
-          jsonMatch[0],
-        );
-        throw new InternalServerErrorException(
+        throw new BadGatewayException(
           'Failed to parse JSON from upstream service response',
         );
       }
     } catch (error) {
-      if (error instanceof InternalServerErrorException) {
+      if (error instanceof HttpException) {
         throw error;
       }
 
-      console.error('Unexpected error calling AI service:', error);
+      if (error.response?.status) {
+        throw new HttpException(
+          `AI service error: ${error.response.data?.message || error.message}`,
+          error.response.status,
+        );
+      }
+
       throw new InternalServerErrorException(
-        'An unexpected error occurred while processing your request',
+        'Unexpected error calling AI service',
       );
     }
   }

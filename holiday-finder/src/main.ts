@@ -19,8 +19,19 @@ async function bootstrap() {
     .setDescription('The Holiday Finder definition')
     .setVersion('1.0')
     .addTag('Holiday Finder')
+    .addApiKey(
+      {
+        type: 'apiKey',
+        name: 'x-api-key',
+        in: 'header',
+        description: 'Enter your API key',
+      },
+      'api-key',
+    )
     .build();
-  const documentFactory = () => SwaggerModule.createDocument(app, config);
+
+  const documentFactory = SwaggerModule.createDocument(app, config);
+
   SwaggerModule.setup('api', app, documentFactory);
 
   await app.listen(process.env.PORT ?? 3000);

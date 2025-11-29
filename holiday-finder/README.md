@@ -24,7 +24,31 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+A NestJS-powered backend API that generates personalized travel suggestions by orchestrating multiple external services to provide comprehensive destination recommendations.
+
+## What it does
+
+The Holiday Finder backend takes user preferences (temperature, budget, departure date, etc.) and intelligently combines data from multiple sources to deliver enriched travel suggestions:
+
+AI-Powered Destination Generation - Leverages a Large Language Model (LLM) via Hugging Face/DeepSeek to generate personalized destination recommendations with detailed descriptions based on user preferences
+
+Visual Content - Fetches high-quality destination images from the Unsplash API to bring each suggestion to life
+
+Flight Cost Estimation - Integrates with flight fare search APIs to provide real-time pricing between the user's location and suggested destinations
+
+Geolocation Services - Automatically detects user location and nearest airport for accurate flight pricing
+
+### Tech Stack
+
+Framework: NestJS (TypeScript)
+
+AI/LLM: Hugging Face / DeepSeek API
+
+Image Service: Unsplash API
+
+Flight Data: Flight Fare Search API
+
+Documentation: Swagger/OpenAPI
 
 ## Project setup
 
@@ -45,55 +69,25 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
-## Run tests
-
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
-```
-
 ## Deployment
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+The server is currently deployed on [Render.com](https://render.com/) and available for HTTP requests @ [https://holiday-finder-v9bo.onrender.com](https://holiday-finder-v9bo.onrender.com)
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### The following routes are available:
 
-```bash
-$ yarn install -g mau
-$ mau deploy
+```
+@ POST: /destinations - Generate AI-powered destination suggestions based on user preferences
+@ GET: /unsplash - Fetch destination images from Unsplash
+@ GET: /flight-fare-search - Get flight pricing for specific routes
+@ POST: /travel-suggestions - Main endpoint - Returns comprehensive travel suggestions with destinations, images, and flight costs in a unified response
+@ GET: /geolocation - Get user location from request IP
+@ GET:   /geolocation/airports - Find nearest airport by city/country
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## Feedback
 
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Feel free to fork this repository, open issues, or submit pull requests if you have suggestions or improvements. I'd love to hear your thoughts!
 
 ## License
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+This project is licensed under the [MIT License](LICENSE).
