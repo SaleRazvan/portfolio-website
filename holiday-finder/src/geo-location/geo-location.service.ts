@@ -29,6 +29,8 @@ export class GeolocationService {
         timezone: response.data.timezone,
       };
     } catch (error) {
+      console.log('WAS THE GEOLOCATION SERVICE THAT FAILED');
+
       if (error.response?.status) {
         throw new HttpException(
           error.response.data?.message || error.message,
@@ -77,6 +79,8 @@ City: ${city},
 Country: $${country}
 `;
 
+    console.log('RECEIVED CITY AND COUNTRY', city, country);
+
     try {
       const response = await client.chatCompletion({
         model: 'deepseek-ai/DeepSeek-V3',
@@ -86,10 +90,12 @@ Country: $${country}
             content: prompt,
           },
         ],
-        max_tokens: 10, // Limit tokens since we only need 3-letter code
+        // max_tokens: 10, // Limit tokens since we only need 3-letter code
       });
 
       const generatedText = response?.choices?.[0]?.message?.content;
+
+      console.log('RECEIVED GEN TEXT', generatedText);
 
       if (!generatedText) {
         throw new BadGatewayException(

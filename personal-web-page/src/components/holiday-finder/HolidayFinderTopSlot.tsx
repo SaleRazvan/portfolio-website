@@ -1,4 +1,4 @@
-import { BellIcon, ReaderIcon } from "@radix-ui/react-icons";
+import { ExclamationTriangleIcon, GlobeIcon } from "@radix-ui/react-icons";
 import { Callout, Flex, Heading, IconButton, Text } from "@radix-ui/themes";
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
@@ -19,14 +19,14 @@ export default function HolidayFinderTopSlot() {
       </Text>
 
       <IconButton variant="surface" style={{ height: "60px", width: "60px" }}>
-        <ReaderIcon style={{ width: "50%", height: "auto" }} />
+        <GlobeIcon style={{ width: "50%", height: "auto" }} />
       </IconButton>
 
       <Callout.Root>
         <Callout.Icon>
-          <BellIcon />
+          <ExclamationTriangleIcon />
         </Callout.Icon>
-        <Callout.Text weight="medium">{t("career.info")}</Callout.Text>
+        <Callout.Text weight="medium">{t("holiday.info")}</Callout.Text>
       </Callout.Root>
     </Flex>
   );

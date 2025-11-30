@@ -139,7 +139,11 @@ i18n
           },
           holiday: {
             title: "Holiday Finder",
-            shortDesc: "TBA",
+            shortDesc:
+              "Discover your perfect travel destination with personalized recommendations powered by a custom API that leverages AI language models to match your preferences, ideal weather, and travel dates",
+            info: "Some recommendations are AI-generated and may contain inaccuracies. Please verify all details before booking",
+            inputErr:
+              "Your inputs are invalid, please revise them and try again!",
           },
           api: {
             title: "GeoData Visualizer",

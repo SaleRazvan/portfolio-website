@@ -79,7 +79,9 @@ export default function ApiForm() {
       justify="center"
       gap="4"
     >
-      <Text size="2">{t("api.country")}</Text>
+      <Text as="label" size="2">
+        {t("api.country")}
+      </Text>
       <Select.Root
         defaultValue="Albania"
         value={countryInput}

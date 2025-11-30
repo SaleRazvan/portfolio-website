@@ -31,4 +31,7 @@ export class GetTravelSuggestionsResponseDto {
 
   @ApiProperty()
   mainAirportIATACode: string;
+
+  @ApiProperty()
+  bookingUrl: string;
 }

@@ -25,7 +25,7 @@ export class DestinationsService {
     const prompt = `Suggest exactly 3 travel destinations. Use the following preferences:
 - Preference: ${filters.preferences}
 - Target Temperature: ${filters.temperature}
-- Month of Travel: ${filters.departureMonth}
+- Time of Travel: ${filters.checkinDate}
 
 Keep all descriptions extremely concise. The output MUST be a strict JSON array containing 3 objects. Do not include any introductory text, explanation, or markdown formatting (e.g., no \`\`\`json).
 
@@ -38,6 +38,8 @@ JSON Array Structure:
     "mainAirportIATACode": "..."
   },
   ... (2 more objects)
+
+  For the "reason" field: provide 2-3 short, compelling phrases that explain why this destination matches the preferences. Cover aspects like key attractions, weather conditions, and what makes it appealing for this time period
 ]`;
 
     try {

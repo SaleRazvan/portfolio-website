@@ -10,7 +10,8 @@ import {
   GetDestinationsResponseDto,
 } from 'src/destinations/dtos/get-destinations-dto';
 import { GetFlightFareResponseDto } from 'src/flight-fare-search/dtos/get-flight-fare-dto';
-import monthToDate from 'src/common/helpers/date.helper';
+import { addDays } from 'src/common/helpers/date.helper';
+import generateBookingUrl from 'src/common/helpers/generate-booking-url.helper';
 
 @Injectable()
 export class TravelSuggestionsService {
@@ -36,14 +37,18 @@ export class TravelSuggestionsService {
       userLocation.country,
     );
 
-    // Assume 15 of departure month to use for fare-flight API - i.e. 'December' becomes '2025-12-15'
-    const formattedDate = monthToDate(filters.departureMonth);
+    const checkoutDate = addDays(filters.checkinDate, filters.days);
 
     try {
       const enrichedDestinations = await Promise.all(
         destinations.map(async (destination) => {
           let image: string;
           let flight: GetFlightFareResponseDto | string;
+          const bookingUrl = generateBookingUrl(
+            destination,
+            filters.checkinDate,
+            checkoutDate,
+          );
 
           try {
             image = await this.unsplashService.generateImages(
@@ -57,16 +62,17 @@ export class TravelSuggestionsService {
             flight = await this.flightFareSearchService.getFlightFare({
               from: userAirport,
               to: destination.mainAirportIATACode,
-              date: formattedDate,
+              date: filters.checkinDate,
             });
           } catch (err) {
-            flight = `No flights available to ${destination.city} on ${formattedDate} or api quota exceeded`;
+            flight = `No flights available to ${destination.city} on ${filters.checkinDate} or api quota exceeded`;
           }
 
           return {
             ...destination,
             image,
             flight,
+            bookingUrl,
           };
         }),
       );

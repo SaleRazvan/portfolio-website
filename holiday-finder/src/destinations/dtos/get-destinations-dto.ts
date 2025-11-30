@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString } from 'class-validator';
+import { IsNumber, IsString, Matches } from 'class-validator';
 
 export class GetDestinationsDto {
   @ApiProperty({ description: 'User preferences as prompt' })
@@ -10,9 +10,16 @@ export class GetDestinationsDto {
   @IsString()
   temperature: string;
 
-  @ApiProperty({ description: 'Departure month (i.e. december)' })
+  @ApiProperty({ description: 'Checkin Date (YYYY-MM-DD)' })
   @IsString()
-  departureMonth: string;
+  @Matches(/^\d{4}-\d{2}-\d{2}$/, {
+    message: 'checkinDate must be in YYYY-MM-DD format',
+  })
+  checkinDate: string;
+
+  @ApiProperty({ description: 'Optimal stay - number of days' })
+  @IsNumber()
+  days: number;
 }
 
 export class GetDestinationsResponseDto {
