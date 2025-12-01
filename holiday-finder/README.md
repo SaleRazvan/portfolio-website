@@ -48,6 +48,8 @@ Image Service: Unsplash API
 
 Flight Data: Flight Fare Search API
 
+Geolocation Service: Ipinfo.io API
+
 Documentation: Swagger/OpenAPI
 
 ## Project setup

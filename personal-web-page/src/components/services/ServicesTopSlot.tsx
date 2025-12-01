@@ -27,7 +27,8 @@ export default function ServicesTopSlot() {
       <PersonalCard
         pfpHref="/razvan.webp"
         name="Sale Razvan"
-        title="Software Engineer"
+        title="JS Engineer"
+        maxMobileWidth="125px"
       />
 
       <AlertLinkModal

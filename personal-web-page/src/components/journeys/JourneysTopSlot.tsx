@@ -36,7 +36,8 @@ export default function JourneysTopSlot({
         <PersonalCard
           pfpHref="/razvan.webp"
           name="Razvan"
-          title="Software Engineer"
+          title="JS Engineer"
+          maxMobileWidth="90px"
         />
 
         <IconButton variant="surface" style={{ height: "60px", width: "60px" }}>
@@ -47,6 +48,7 @@ export default function JourneysTopSlot({
           pfpHref="/roxana.webp"
           name="Roxana"
           title="QA Engineer"
+          maxMobileWidth="90px"
         />
       </Flex>
 

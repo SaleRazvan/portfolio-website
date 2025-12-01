@@ -2,16 +2,17 @@ import {
   Badge,
   Button,
   Callout,
+  Card,
   DataList,
   Flex,
   Heading,
+  Inset,
   Text,
 } from "@radix-ui/themes";
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { AppContext } from "../../AppContext";
 import AlertLinkModal from "../alert-link-modal/AlertLinkModal";
-import styles from "./HomeBottomSlot.module.scss";
 import { getWorkExp } from "../../utils/get-work-exp";
 import i18n from "../../../i18n";
 import { QuoteIcon } from "@radix-ui/react-icons";
@@ -45,7 +46,29 @@ export default function HomeBottomSlot() {
         align="center"
         gap="8"
       >
-        <img className={styles.img} src="/razvan.webp" />
+        <Card size="2" style={{ maxWidth: "300px" }}>
+          <Flex direction="column" gap="2">
+            <Inset side="top" pb="current">
+              <img
+                src="/razvanMain.webp"
+                alt="Razvan"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "50% 30%",
+                  width: "100%",
+                  height: 250,
+                }}
+              />
+            </Inset>
+            <Heading as="h3" size="3" color={dynamicColor} align="center">
+              {t("home.developer")}
+            </Heading>
+            <Text size="1" as="p" align="center">
+              {t("home.longDesc")}
+            </Text>
+          </Flex>
+        </Card>
+
         <Flex
           direction="column"
           gap="4"
@@ -58,9 +81,11 @@ export default function HomeBottomSlot() {
             {t("home.subtitle")}
           </Heading>
           <Heading as="h3" size="3" color={dynamicColor}>
-            {t("home.developer")}
+            Tech stack: JS/TS (ES6+), React/Vue, Next/Nuxt, Express/NestJS
           </Heading>
-          <Text size="2">{t("home.longDesc")}</Text>
+          <Text size="1" as="p">
+            {t("home.rightDesc")}
+          </Text>
           <DataList.Root
             size="1"
             orientation={{
@@ -70,7 +95,7 @@ export default function HomeBottomSlot() {
           >
             <DataList.Item>
               <DataList.Label>{t("home.birthday")}</DataList.Label>
-              <DataList.Value>March 29, 1999</DataList.Value>
+              <DataList.Value>{t("home.birthDate")}</DataList.Value>
             </DataList.Item>
             <DataList.Item>
               <DataList.Label>{t("home.from")}</DataList.Label>

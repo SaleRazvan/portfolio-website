@@ -12,7 +12,7 @@ export default function SkillsTopSlot() {
 
   return (
     <Flex direction="column" align="center" gap="4">
-      <Heading as="h1" size="6" color={dynamicColor}>
+      <Heading as="h1" size="6" align="center" color={dynamicColor}>
         {t("skills.title")}
       </Heading>
 
@@ -27,10 +27,11 @@ export default function SkillsTopSlot() {
       <PersonalCard
         pfpHref="/razvan.webp"
         name="Sale Razvan"
-        title="Software Engineer"
+        title="JS Engineer"
+        maxMobileWidth="125px"
       />
 
-      <Flex gap={{ initial: "4", md: "6" }}>
+      <Flex justify="center" gap={{ initial: "4", md: "6" }}>
         <AlertLinkModal
           action="dialog.linkedin"
           href="https://www.linkedin.com/in/razvan-sale-059647216/"

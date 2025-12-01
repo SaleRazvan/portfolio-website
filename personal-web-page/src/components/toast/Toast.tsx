@@ -1,5 +1,6 @@
 import { MinusCircledIcon } from "@radix-ui/react-icons";
 import { Box, Callout } from "@radix-ui/themes";
+import { useEffect, useRef } from "react";
 
 type ToastProps = {
   open: boolean;
@@ -10,10 +11,21 @@ type ToastProps = {
   bottom?: string;
 };
 
-export default function ErrorToast({ open, message, right, top }: ToastProps) {
+export default function Toast({ open, message, right, top }: ToastProps) {
+  const toastRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    toastRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [open]);
+
   return (
     open && (
-      <Box position="absolute" right={right} top={top} width="250px">
+      <Box
+        position="absolute"
+        right={right}
+        top={top}
+        width="250px"
+        ref={toastRef}
+      >
         <Callout.Root size="3" variant="surface" color="red">
           <Callout.Icon>
             <MinusCircledIcon />

@@ -7,7 +7,7 @@ import {
   Progress,
   Text,
 } from "@radix-ui/themes";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AppContext } from "../../AppContext";
 import { TravelSuggestionsResponse } from "../../common/types";
 import AlertLinkModal from "../alert-link-modal/AlertLinkModal";
@@ -34,32 +34,38 @@ export default function HolidayFinderResults({
       flight:
         typeof trip.flight === "string"
           ? trip.flight
-          : t("flight.cheapestFound", {
+          : t("holiday.cheapestFlightFound", {
               flightName: trip.flight.flightName,
               stops: trip.flight.stops,
               cabinType: trip.flight.cabinType,
-              price: trip.flight.price,
+              price: Math.floor(trip.flight.price) + " €",
             }),
     }));
   const fallbackCards = [
     {
       title: t("holiday.fallbackTitle1"),
       image: "/search1.webp",
-      shortDesc: t("holiday.fallbackDesc"),
+      shortDesc: isProcessingRequest
+        ? t("holiday.loading")
+        : t("holiday.fallbackDesc"),
       url: "",
       flight: "",
     },
     {
       title: t("holiday.fallbackTitle2"),
       image: "/search2.webp",
-      shortDesc: t("holiday.fallbackDesc"),
+      shortDesc: isProcessingRequest
+        ? t("holiday.loading")
+        : t("holiday.fallbackDesc"),
       url: "",
       flight: "",
     },
     {
       title: t("holiday.fallbackTitle3"),
       image: "/search3.webp",
-      shortDesc: t("holiday.fallbackDesc"),
+      shortDesc: isProcessingRequest
+        ? t("holiday.loading")
+        : t("holiday.fallbackDesc"),
       url: "",
       flight: "",
     },
@@ -67,9 +73,15 @@ export default function HolidayFinderResults({
 
   const displayedCards = generatedTrips ? formattedTrips : fallbackCards;
   const [progress, setProgress] = useState(0);
+  const suggestionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isProcessingRequest) return;
+
+    suggestionRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
 
     let COUNT = 0;
     const DURATION = 10000;
@@ -93,7 +105,13 @@ export default function HolidayFinderResults({
   }, [formattedTrips, isProcessingRequest]);
 
   return (
-    <Flex direction="column" align="stretch" gap="6" minWidth="25%">
+    <Flex
+      direction="column"
+      align="stretch"
+      gap="6"
+      minWidth="25%"
+      ref={suggestionRef}
+    >
       {displayedCards?.map((trip) => (
         <Card size="3" key={trip.title}>
           <Inset side="top" pb="current">

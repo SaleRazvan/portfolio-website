@@ -8,6 +8,7 @@ import Toast from "../toast/Toast";
 import { formatDate } from "../../utils/get-days-for-months";
 import { TravelSuggestionsResponse } from "../../common/types";
 import { useTranslation } from "react-i18next";
+import styles from "./HolidayFinderBottomSlot.module.scss";
 
 export default function HolidayFinderBottomSlot() {
   const DEFAULT_FILTERS = {
@@ -18,7 +19,7 @@ export default function HolidayFinderBottomSlot() {
     selectedDay: "1",
   };
 
-  const { dynamicColor } = useContext(AppContext);
+  const { dynamicColor, screenWidth } = useContext(AppContext);
   const { t } = useTranslation();
   const [filters, setFilters] = useState<{
     preferences?: string;
@@ -40,6 +41,8 @@ export default function HolidayFinderBottomSlot() {
   const toastMessage = hasError.reqFailed
     ? t("holiday.reqErr")
     : t("holiday.inputErr");
+  const hasAnyError =
+    hasError.preferences || hasError.weatherPreferences || hasError.reqFailed;
 
   const handleGenerateTrips = async () => {
     const {
@@ -134,7 +137,12 @@ export default function HolidayFinderBottomSlot() {
   }, []);
 
   return (
-    <Flex align="center" justify="center" gap="9">
+    <Flex
+      direction={{ initial: "column", md: "row" }}
+      align="center"
+      justify="center"
+      gap="9"
+    >
       <HolidayFinderForm
         filters={filters}
         setFilters={setFilters}
@@ -143,16 +151,18 @@ export default function HolidayFinderBottomSlot() {
 
       <Separator
         size="4"
+        orientation={{ initial: "vertical", md: "horizontal" }}
         color={dynamicColor}
         decorative
         style={{ flex: "1" }}
+        className={styles.separator}
       />
 
       <Flex direction="column" position="relative">
         <Card size="3">
           <Button
             size="3"
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", width: "100%" }}
             onClick={handleGenerateTrips}
           >
             {generatedTrips
@@ -173,22 +183,23 @@ export default function HolidayFinderBottomSlot() {
           </Inset>
         </Card>
         <Toast
-          open={
-            hasError.preferences ||
-            hasError.weatherPreferences ||
-            hasError.reqFailed
-          }
+          open={hasAnyError}
           message={toastMessage}
-          right="-30px"
-          top="250px"
+          right="-12px"
+          top="270px"
         />
       </Flex>
 
       <Separator
         size="4"
+        orientation={{ initial: "vertical", md: "horizontal" }}
         color={dynamicColor}
         decorative
-        style={{ flex: "1" }}
+        style={{
+          flex: "1",
+          opacity: screenWidth < 1024 && hasAnyError ? "0" : "1",
+        }}
+        className={styles.separator}
       />
 
       <HolidayFinderResults

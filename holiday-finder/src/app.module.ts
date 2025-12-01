@@ -22,7 +22,7 @@ import { ApiKeyGuard } from './guards/api-key.guard';
     ThrottlerModule.forRoot([
       {
         ttl: 60000,
-        limit: 5,
+        limit: 10,
       },
     ]),
     TravelSuggestionsModule,

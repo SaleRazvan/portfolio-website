@@ -26,7 +26,7 @@ export default function HolidayFinderTopSlot() {
         <Callout.Icon>
           <ExclamationTriangleIcon />
         </Callout.Icon>
-        <Callout.Text weight="medium">{t("holiday.info")}</Callout.Text>
+        <Callout.Text weight="medium">{t("holiday.warning")}</Callout.Text>
       </Callout.Root>
     </Flex>
   );

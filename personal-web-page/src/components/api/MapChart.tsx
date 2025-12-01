@@ -8,6 +8,7 @@ import styles from "./MapChart.module.scss";
 import "leaflet/dist/leaflet.css";
 import { EuCountry } from "../../common/types";
 import { euCountriesCoordinates } from "../../utils/eu-countries-coordinates";
+import { useTranslation } from "react-i18next";
 
 type MapOptionsType = {
   center: [number, number];
@@ -30,14 +31,19 @@ const mapOptions: MapOptionsType = {
 
 export default function MapChart() {
   const { euCountriesData, setEuCountriesData } = useContext(AppContext);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const data = await fetch(
+        const response = await fetch(
           "https://portfolio-website-9jb0.onrender.com/fun-facts/all"
         );
-        const responseArr = (await data.json()) as EuCountry[];
+
+        if (!response.ok && response.status === 429)
+          throw new Error(t("api.reqFail"));
+
+        const responseArr: EuCountry[] = await response.json();
 
         const availableCountries = responseArr
           .map((countryData) => {
@@ -59,13 +65,13 @@ export default function MapChart() {
           });
 
         setEuCountriesData(availableCountries);
-      } catch (err) {
-        alert(err);
+      } catch (error) {
+        alert(error);
       }
     };
 
     fetchCountries();
-  }, [setEuCountriesData]);
+  }, [setEuCountriesData, t]);
 
   if (euCountriesData.length === 0)
     return (

@@ -11,7 +11,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    debug: true,
+    debug: false,
     fallbackLng: "en",
     resources: {
       en: {
@@ -42,6 +42,8 @@ i18n
               "I'm Sale Razvan, and this is where I share my work, passions, and projects. Whether you're here to explore my creations or connect, I'm glad you stopped by. Take a look around and feel free to reach out!",
             longDesc:
               "Dynamic Fullstack JavaScript/TypeScript Developer adept at building high-performance, scalable web applications using React, Node.js, and cutting-edge database technologies",
+            rightDesc:
+              "I'm detail-oriented, ambitious, and adaptable. When tackling problems, I rely on careful thinking, a lot of Googling, and asking plenty of questions—some smart, some… less so—but all part of the process of figuring things out.",
             workStatus: "Work Status",
             available: "Available for work",
             notAvailable: "Happily employed",
@@ -52,10 +54,11 @@ i18n
             role: "Current role",
             developer: "JS Developer",
             birthday: "Birthday",
+            birthDate: "March 29, 1999",
             from: "From",
             workexp: "Work experience",
             education: "Education",
-            highschool: "Tiberiu Popoviciu High School",
+            highschool: "T. Popoviciu High School",
             university: "Babes-Bolyai University",
             languages: "Languages",
             romanian: "Romanian",
@@ -70,7 +73,7 @@ i18n
           skills: {
             title: "Skills, expertise, and services",
             shortDesc:
-              " Explore the web development services I provide, and dive into my tech toolkit: a personal journey through the technologies and skills that define my coding approach.",
+              " Explore the web development services I provide, and dive into my tech toolkit: a personal journey through the technologies and skills that define my coding approach",
             warning:
               "Please keep in mind: the following list is not exhaustive",
             linkedin: "Full skills overview",
@@ -79,7 +82,7 @@ i18n
           career: {
             title: "Career summary",
             shortDesc:
-              "A curated showcase of my technical journey. Review my completed projects to see examples of problem-solving, data integration, and my commitment to clean, efficient web development.",
+              "A curated showcase of my technical journey. Review my completed projects to see examples of problem-solving, data integration, and my commitment to clean, efficient web development",
             info: "Have a challenging problem? I'm actively seeking opportunities. Let's connect and discuss your challenges!",
             work: "Showcasing the past",
             bmwAchievement1:
@@ -159,7 +162,7 @@ i18n
             dateAlt: "Clock image",
             booking: "Open Booking",
             cheapestFlightFound:
-              "Cheapest flight found for selected date: {{flightName}}, {{stops}} flight, {{cabinType}} class, total price: {{price}}",
+              "Cheapest flight found: {{flightName}}, {{stops}} flight, {{cabinType}} class, price: {{price}}",
             preferences: "General preferences",
             preferencesPlaceholder:
               "Describe your dream trip: Include interests, desired atmosphere, and travel pace",
@@ -182,6 +185,9 @@ i18n
             october: "October",
             november: "November",
             december: "December",
+            loading: "Loading...",
+            warning:
+              "Notice that, due to provider limitations, the first trip generation may take up to a minute",
           },
           api: {
             title: "GeoData Visualizer",
@@ -197,6 +203,8 @@ i18n
             fact: "Add Fact",
             button: "Submit",
             success: "Request sent succesfully",
+            reqFail:
+              "Status 429: too many requests. Take a break from accessing this page and try again later!",
           },
           journeys: {
             title: "My travels",
@@ -251,6 +259,8 @@ i18n
               "Sunt Sale Razvan si aici public munca, pasiunile și proiectele mele. Fie ca esti aici sa explorezi proiectele sau sa ma contactezi, ma bucur ca esti aici. Arunca o privire si nu ezita sa ma contactezi!",
             longDesc:
               "Dezvoltator Fullstack JavaScript/TypeScript, specializat in construirea aplicatiilor web scalabile, utilizand React, Node.js si tehnologii de baze de date de ultima generatie",
+            rightDesc:
+              "Ma caracterizeaza orientarea spre detalii, ambitia si adaptabilitatea. Cand analizez probleme, ma bazez pe gandirea analitica, pe cautarea intensiva pe Google, si pe adresarea unor intrebari — unele inteligente, altele... mai putin — dar toate fac parte din procesul de invatare.",
             workStatus: "Starea de munca",
             available: "Disponibil",
             notAvailable: "Angajat",
@@ -261,6 +271,7 @@ i18n
             developer: "Dezvoltator JS",
             company: "Companie curenta",
             birthday: "Zi de nastere",
+            birthDate: "Martie 29, 1999",
             from: "Domiciliu",
             workexp: "Experienta profesionala",
             education: "Studii",
@@ -349,7 +360,7 @@ i18n
           holiday: {
             title: "Holiday Finder",
             shortDesc:
-              "Gaseste-ti destinatia de vis! Iti oferim recomandari personalizate, bazate pe tehnologie IA care iti potriveste preferintele, vremea ideala si datele de calatorie.",
+              "Gaseste-ti destinatia de vis! Iti oferim recomandari personalizate, bazate pe tehnologie IA care iti potriveste preferintele, vremea ideala si datele de calatorie",
             info: "Unele recomandari sunt generate de IA si ar putea contine erori. Verifica toate detaliile inainte de rezervare.",
             inputErr:
               "Datele introduse nu sunt corecte. Te rugam sa le verifici si sa incerci din nou!",
@@ -367,7 +378,7 @@ i18n
             dateAlt: "Imagine calendar/perioada",
             booking: "Acceseaza Booking",
             cheapestFlightFound:
-              "Cel mai avantajos zbor pentru perioada aleasa: {{flightName}}, {{stops}}, clasa {{cabinType}}, pret total: {{price}}",
+              "Cel mai avantajos zbor: {{flightName}}, {{stops}}, clasa {{cabinType}}, pret: {{price}}",
             preferences: "Ce iti doresti de la vacanta?",
             preferencesPlaceholder:
               "Descrie vacanta ta de vis: poti include ce te intereseaza, atmosfera dorita si ritmul de calatorie",
@@ -390,9 +401,12 @@ i18n
             october: "Octombrie",
             november: "Noiembrie",
             december: "Decembrie",
+            loading: "Se incarca...",
+            warning:
+              "Din cauza limitarilor de la furnizor, prima generare de calatorii poate dura pana la un minut",
           },
           api: {
-            title: "Incearca-mi API-ul",
+            title: "GeoData Visualizer",
             shortDesc:
               "O harta generata cu Leaflet, cu markere care dezvaluie curiozitati despre fiecare tara, preluate de pe propriul server",
             warning:
@@ -405,6 +419,8 @@ i18n
             fact: "Curiozitate",
             button: "Trimite",
             success: "Request trimis cu succes",
+            reqFail:
+              "Status 429: prea multe request-uri. Sisteaza accesarea paginii si revino mai tarziu!",
           },
           journeys: {
             title: "Calatorii",

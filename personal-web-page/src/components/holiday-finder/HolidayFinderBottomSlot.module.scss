@@ -1,0 +1,9 @@
+.separator {
+  min-height: var(--space-9);
+}
+
+@media (min-width: 1024px) {
+  .separator {
+    min-height: initial;
+  }
+}

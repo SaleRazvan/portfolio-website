@@ -44,6 +44,7 @@ export default function CareerBottomSlot() {
         years="2025 - 2026"
         achievements={achievements.bmw}
         imageSrc="/bmw.webp"
+        imagePosition="50% 70%"
         techStack={techStack.bmw}
         insetDir="right"
       />
@@ -61,6 +62,7 @@ export default function CareerBottomSlot() {
         years="2025"
         achievements={achievements.ot}
         imageSrc="/ot.webp"
+        imagePosition="50% 35%"
         techStack={techStack.ot}
         insetDir="left"
       />
@@ -78,6 +80,7 @@ export default function CareerBottomSlot() {
         years="2021 - 2025"
         achievements={achievements.endava}
         imageSrc="/endava.webp"
+        imagePosition="50% 50%"
         techStack={techStack.endava}
         insetDir="right"
       />

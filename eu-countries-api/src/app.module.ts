@@ -21,7 +21,7 @@ const dbConfig = require('../ormconfig.js');
     ThrottlerModule.forRoot([
       {
         ttl: 60000,
-        limit: 5,
+        limit: 10,
       },
     ]),
   ],
