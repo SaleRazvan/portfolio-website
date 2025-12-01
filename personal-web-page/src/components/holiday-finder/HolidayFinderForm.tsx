@@ -12,6 +12,7 @@ import { months } from "../../common/constants";
 import { AppContext } from "../../AppContext";
 import { Dispatch, SetStateAction, useContext } from "react";
 import { getDaysInMonth } from "../../utils/get-days-for-months";
+import { useTranslation } from "react-i18next";
 
 type HolidayFinderFormProps = {
   filters: {
@@ -42,6 +43,7 @@ export default function HolidayFinderForm({
   hasError,
 }: HolidayFinderFormProps) {
   const { dynamicColor } = useContext(AppContext);
+  const { t } = useTranslation();
   const {
     preferences,
     weatherPreferences,
@@ -57,10 +59,10 @@ export default function HolidayFinderForm({
         <Inset side="top" pb="current">
           <img
             src="/preferences.png"
-            alt="General preferances image"
+            alt={t("holiday.preferencesAlt")}
             style={{
               objectFit: "cover",
-              objectPosition: "50% 75%",
+              objectPosition: "50% 80%",
               width: "100%",
               height: 150,
             }}
@@ -74,11 +76,11 @@ export default function HolidayFinderForm({
           mb="4"
           align="center"
         >
-          General preferences
+          {t("holiday.preferences")}
         </Heading>
         <TextArea
           variant="soft"
-          placeholder="Add general preferences for prompt"
+          placeholder={t("holiday.preferencesPlaceholder")}
           size="3"
           radius="large"
           color={hasError.preferences ? "red" : dynamicColor}
@@ -97,10 +99,10 @@ export default function HolidayFinderForm({
         <Inset side="top" pb="current">
           <img
             src="/beach.png"
-            alt="Beach image"
+            alt={t("holiday.weatherAlt")}
             style={{
               objectFit: "cover",
-              objectPosition: "50% 25%",
+              objectPosition: "50% 30%",
               width: "100%",
               height: 150,
             }}
@@ -114,11 +116,11 @@ export default function HolidayFinderForm({
           mb="4"
           align="center"
         >
-          Ideal weather
+          {t("holiday.weather")}
         </Heading>
         <TextArea
           variant="soft"
-          placeholder="Add temp preferences for prompt"
+          placeholder={t("holiday.weatherPlaceholder")}
           size="3"
           radius="large"
           color={hasError.weatherPreferences ? "red" : dynamicColor}
@@ -137,7 +139,7 @@ export default function HolidayFinderForm({
         <Inset side="top" pb="current">
           <img
             src="/clock.png"
-            alt="Relevant company image"
+            alt={t("holiday.dateAlt")}
             style={{
               objectFit: "cover",
               objectPosition: "50% 60%",
@@ -148,13 +150,14 @@ export default function HolidayFinderForm({
         </Inset>
 
         <Heading as="h4" size="2" color={dynamicColor} mb="4" align="center">
-          Date of departure
+          {t("holiday.date")}
         </Heading>
 
         <Flex gap="2" direction="column" align="center" justify="center">
+          {/* YEAR */}
           <Flex align="center" gap="2">
             <Text as="label" size="2">
-              Year
+              {t("holiday.year")}
             </Text>
             <Separator
               size="3"
@@ -189,9 +192,10 @@ export default function HolidayFinderForm({
             </Select.Root>
           </Flex>
 
+          {/* MONTH */}
           <Flex align="center" gap="2">
             <Text as="label" size="2">
-              Month
+              {t("holiday.month")}
             </Text>
             <Separator
               size="3"
@@ -215,7 +219,7 @@ export default function HolidayFinderForm({
                 <Select.Group>
                   {months.map((month, index) => (
                     <Select.Item key={index} value={month}>
-                      {month}
+                      {t(`holiday.${month.toLowerCase()}`)}
                     </Select.Item>
                   ))}
                 </Select.Group>
@@ -223,9 +227,10 @@ export default function HolidayFinderForm({
             </Select.Root>
           </Flex>
 
+          {/* DAY */}
           <Flex align="center" gap="2">
             <Text as="label" size="2">
-              Day
+              {t("holiday.day")}
             </Text>
             <Separator
               size="3"

@@ -17,15 +17,17 @@ export class GeolocationService {
 
   async getLocationByIP(ip: string): Promise<GetUserLocationResponseDto> {
     try {
-      const response = await axios.get(`https://ipapi.co/${ip}/json/`);
+      // const response = await axios.get(`https://ipapi.co/${ip}/json/`); SEEMS TO CAUSE TOO MANY LIMITS
+      const response = await axios.get(`https://ipinfo.io/${ip}/json`, {
+        headers: {
+          Authorization: `Bearer ${this.configService.get<string>('IPINFO_KEY')}`,
+        },
+      });
 
       return {
         city: response.data.city,
         region: response.data.region,
-        country: response.data.country_name,
-        countryCode: response.data.country_code,
-        latitude: response.data.latitude,
-        longitude: response.data.longitude,
+        country: response.data.country,
         timezone: response.data.timezone,
       };
     } catch (error) {
@@ -78,8 +80,6 @@ Instructions:
 City: ${city},
 Country: $${country}
 `;
-
-    console.log('RECEIVED CITY AND COUNTRY', city, country);
 
     try {
       const response = await client.chatCompletion({

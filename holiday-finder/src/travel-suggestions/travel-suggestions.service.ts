@@ -55,7 +55,7 @@ export class TravelSuggestionsService {
               `${destination.city} ${destination.country}`,
             );
           } catch (err) {
-            image = `No images available for ${destination.city} or api quota exceeded`;
+            image = '/failedImg.png';
           }
 
           try {

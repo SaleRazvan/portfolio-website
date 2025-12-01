@@ -6,47 +6,40 @@ import { months } from "../../common/constants";
 import HolidayFinderResults from "./HolidayFinderResults";
 import Toast from "../toast/Toast";
 import { formatDate } from "../../utils/get-days-for-months";
-
-type FlightResponse =
-  | {
-      id: string;
-      flightName: string;
-      stops: string;
-      cabinType: string;
-      price: number;
-    }
-  | string;
-
-type TravelSuggestionsResponse = Array<{
-  city: string;
-  country: string;
-  reason: string;
-  mainAirportIATACode: string;
-  image: string;
-  flight: FlightResponse;
-  bookingUrl: string;
-}>;
+import { TravelSuggestionsResponse } from "../../common/types";
+import { useTranslation } from "react-i18next";
 
 export default function HolidayFinderBottomSlot() {
+  const DEFAULT_FILTERS = {
+    preferences: "",
+    weatherPreferences: "",
+    selectedYear: new Date().getFullYear().toString(),
+    selectedMonth: months[0],
+    selectedDay: "1",
+  };
+
   const { dynamicColor } = useContext(AppContext);
+  const { t } = useTranslation();
   const [filters, setFilters] = useState<{
     preferences?: string;
     weatherPreferences?: string;
     selectedYear?: string;
     selectedMonth?: string;
     selectedDay?: string;
-  }>({
-    preferences: undefined,
-    weatherPreferences: undefined,
-    selectedYear: new Date().getFullYear().toString(),
-    selectedMonth: months[0],
-    selectedDay: "1",
-  });
+  }>(DEFAULT_FILTERS);
   const [hasError, setHasError] = useState({
     preferences: false,
     weatherPreferences: false,
+    reqFailed: false,
   });
+  const [isProcessingRequest, setIsProcessingRequest] = useState(false);
+  const [generatedTrips, setGeneratedTrips] = useState<
+    TravelSuggestionsResponse | undefined
+  >(undefined);
   const timerRef = useRef(0);
+  const toastMessage = hasError.reqFailed
+    ? t("holiday.reqErr")
+    : t("holiday.inputErr");
 
   const handleGenerateTrips = async () => {
     const {
@@ -57,57 +50,82 @@ export default function HolidayFinderBottomSlot() {
       selectedYear,
     } = filters;
 
-    if (
-      preferences &&
-      weatherPreferences &&
-      selectedYear &&
-      selectedMonth &&
-      selectedDay
-    ) {
-      const formattedBody = {
-        preferences,
-        temperature: weatherPreferences,
-        checkinDate: formatDate(selectedYear, selectedMonth, selectedDay),
-        days: 7,
-      };
-
-      console.log("formattedBody", JSON.stringify(formattedBody));
-
-      try {
-        const response = await fetch(
-          "https://hf.razvansale.dev/travel-suggestions",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "x-api-key": import.meta.env.VITE_API_KEY,
-            },
-            body: JSON.stringify(formattedBody),
-          }
-        );
-
-        const parsedResponse: TravelSuggestionsResponse = await response.json();
-
-        console.log("parsedResponse", parsedResponse);
-      } catch (err) {
-        console.log("Something went wrong", err);
-      }
+    if (generatedTrips) {
+      setFilters(DEFAULT_FILTERS);
+      setGeneratedTrips(undefined);
     } else {
-      if (!preferences) {
-        setHasError((prev) => ({ ...prev, preferences: true }));
-      }
-      if (!weatherPreferences) {
-        setHasError((prev) => ({ ...prev, weatherPreferences: true }));
-      }
+      if (
+        preferences &&
+        weatherPreferences &&
+        selectedYear &&
+        selectedMonth &&
+        selectedDay
+      ) {
+        const formattedBody = {
+          preferences,
+          temperature: weatherPreferences,
+          checkinDate: formatDate(selectedYear, selectedMonth, selectedDay),
+          days: 7,
+        };
 
-      window.clearTimeout(timerRef.current);
+        try {
+          setIsProcessingRequest(true);
 
-      timerRef.current = window.setTimeout(() => {
-        setHasError({
-          preferences: false,
-          weatherPreferences: false,
-        });
-      }, 2000);
+          const response = await fetch(
+            "https://hf.razvansale.dev/travel-suggestions",
+            // "http://localhost:3000/travel-suggestions",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "x-api-key": import.meta.env.VITE_API_KEY,
+              },
+              body: JSON.stringify(formattedBody),
+            }
+          );
+
+          if (!response.ok)
+            throw new Error(`HTTP error! status: ${response.status}`);
+
+          const parsedResponse: TravelSuggestionsResponse =
+            await response.json();
+
+          setGeneratedTrips(parsedResponse);
+          setIsProcessingRequest(false);
+        } catch (err) {
+          setHasError((prev) => ({ ...prev, reqFailed: true }));
+          setIsProcessingRequest(false);
+
+          window.clearTimeout(timerRef.current);
+
+          timerRef.current = window.setTimeout(() => {
+            setHasError({
+              preferences: false,
+              weatherPreferences: false,
+              reqFailed: false,
+            });
+          }, 2000);
+
+          console.log("Something went wrong", err);
+        }
+      } else {
+        if (!preferences) {
+          setHasError((prev) => ({ ...prev, preferences: true }));
+        }
+        if (!weatherPreferences) {
+          setHasError((prev) => ({ ...prev, weatherPreferences: true }));
+        }
+
+        window.clearTimeout(timerRef.current);
+
+        timerRef.current = window.setTimeout(() => {
+          setHasError({
+            preferences: false,
+            weatherPreferences: false,
+            reqFailed: false,
+          });
+        }, 2000);
+      }
     }
   };
 
@@ -137,7 +155,9 @@ export default function HolidayFinderBottomSlot() {
             style={{ cursor: "pointer" }}
             onClick={handleGenerateTrips}
           >
-            Generate trips
+            {generatedTrips
+              ? t("holiday.generateSecond")
+              : t("holiday.generateFirst")}
           </Button>
           <Inset side="bottom" pt="current">
             <img
@@ -152,7 +172,16 @@ export default function HolidayFinderBottomSlot() {
             />
           </Inset>
         </Card>
-        <Toast open={hasError.preferences || hasError.weatherPreferences} />
+        <Toast
+          open={
+            hasError.preferences ||
+            hasError.weatherPreferences ||
+            hasError.reqFailed
+          }
+          message={toastMessage}
+          right="-30px"
+          top="250px"
+        />
       </Flex>
 
       <Separator
@@ -161,7 +190,11 @@ export default function HolidayFinderBottomSlot() {
         decorative
         style={{ flex: "1" }}
       />
-      <HolidayFinderResults />
+
+      <HolidayFinderResults
+        generatedTrips={generatedTrips}
+        isProcessingRequest={isProcessingRequest}
+      />
     </Flex>
   );
 }
