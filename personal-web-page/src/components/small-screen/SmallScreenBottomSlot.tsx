@@ -33,7 +33,7 @@ export default function SmallScreenBottomSlot() {
           Good code is like a joke: if you have to explain it, it's not working.
         </Callout.Text>
       </Callout.Root>
-      <img className={styles.img} src="/razvan.jpg" />
+      <img className={styles.img} src="/razvan.webp" />
       <Heading as="h3" size="3">
         {t("home.subtitle")}
       </Heading>

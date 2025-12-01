@@ -43,7 +43,7 @@ export default function CareerBottomSlot() {
         company="BMW TechWorks Romania"
         years="2025 - 2026"
         achievements={achievements.bmw}
-        imageSrc="/bmw.png"
+        imageSrc="/bmw.webp"
         techStack={techStack.bmw}
         insetDir="right"
       />
@@ -60,7 +60,7 @@ export default function CareerBottomSlot() {
         company="OpenText"
         years="2025"
         achievements={achievements.ot}
-        imageSrc="/ot.png"
+        imageSrc="/ot.webp"
         techStack={techStack.ot}
         insetDir="left"
       />
@@ -77,7 +77,7 @@ export default function CareerBottomSlot() {
         company="Endava"
         years="2021 - 2025"
         achievements={achievements.endava}
-        imageSrc="/endava.png"
+        imageSrc="/endava.webp"
         techStack={techStack.endava}
         insetDir="right"
       />

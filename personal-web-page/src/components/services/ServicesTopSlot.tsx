@@ -25,7 +25,7 @@ export default function ServicesTopSlot() {
       </IconButton>
 
       <PersonalCard
-        pfpHref="/razvan.jpg"
+        pfpHref="/razvan.webp"
         name="Sale Razvan"
         title="Software Engineer"
       />

@@ -58,7 +58,7 @@ export default function HolidayFinderForm({
       <Card size="3">
         <Inset side="top" pb="current">
           <img
-            src="/preferences.png"
+            src="/preferences.webp"
             alt={t("holiday.preferencesAlt")}
             style={{
               objectFit: "cover",
@@ -98,7 +98,7 @@ export default function HolidayFinderForm({
       <Card size="3">
         <Inset side="top" pb="current">
           <img
-            src="/beach.png"
+            src="/beach.webp"
             alt={t("holiday.weatherAlt")}
             style={{
               objectFit: "cover",
@@ -138,7 +138,7 @@ export default function HolidayFinderForm({
       <Card size="3">
         <Inset side="top" pb="current">
           <img
-            src="/clock.png"
+            src="/clock.webp"
             alt={t("holiday.dateAlt")}
             style={{
               objectFit: "cover",

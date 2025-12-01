@@ -161,7 +161,7 @@ export default function HolidayFinderBottomSlot() {
           </Button>
           <Inset side="bottom" pt="current">
             <img
-              src="/search.png"
+              src="/search.webp"
               alt="Relevant company image"
               style={{
                 objectFit: "cover",

@@ -55,7 +55,7 @@ export class TravelSuggestionsService {
               `${destination.city} ${destination.country}`,
             );
           } catch (err) {
-            image = '/failedImg.png';
+            image = '/failedImg.webp';
           }
 
           try {

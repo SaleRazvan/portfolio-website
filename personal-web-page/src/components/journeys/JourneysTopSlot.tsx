@@ -34,7 +34,7 @@ export default function JourneysTopSlot({
 
       <Flex align="center" justify="center" gap={{ initial: "3", md: "6" }}>
         <PersonalCard
-          pfpHref="/razvan.jpg"
+          pfpHref="/razvan.webp"
           name="Razvan"
           title="Software Engineer"
         />
@@ -43,7 +43,11 @@ export default function JourneysTopSlot({
           <ImageIcon style={{ width: "50%", height: "auto" }} />
         </IconButton>
 
-        <PersonalCard pfpHref="/roxana.jpg" name="Roxana" title="QA Engineer" />
+        <PersonalCard
+          pfpHref="/roxana.webp"
+          name="Roxana"
+          title="QA Engineer"
+        />
       </Flex>
 
       <AlertDialog.Root>

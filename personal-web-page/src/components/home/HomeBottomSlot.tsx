@@ -45,7 +45,7 @@ export default function HomeBottomSlot() {
         align="center"
         gap="8"
       >
-        <img className={styles.img} src="/razvan.jpg" />
+        <img className={styles.img} src="/razvan.webp" />
         <Flex
           direction="column"
           gap="4"

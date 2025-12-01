@@ -44,21 +44,21 @@ export default function HolidayFinderResults({
   const fallbackCards = [
     {
       title: t("holiday.fallbackTitle1"),
-      image: "/search1.png",
+      image: "/search1.webp",
       shortDesc: t("holiday.fallbackDesc"),
       url: "",
       flight: "",
     },
     {
       title: t("holiday.fallbackTitle2"),
-      image: "/search2.png",
+      image: "/search2.webp",
       shortDesc: t("holiday.fallbackDesc"),
       url: "",
       flight: "",
     },
     {
       title: t("holiday.fallbackTitle3"),
-      image: "/search3.png",
+      image: "/search3.webp",
       shortDesc: t("holiday.fallbackDesc"),
       url: "",
       flight: "",
